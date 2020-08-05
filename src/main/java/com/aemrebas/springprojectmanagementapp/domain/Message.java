@@ -18,8 +18,7 @@ public class Message {
     private Long id;
 
     private String content;
-    private Date created_at;
-
+    private Date createdAt;
     private MESSAGE_STATUS status;
 
     @ManyToOne
@@ -27,4 +26,12 @@ public class Message {
 
     @ManyToOne
     private User receiver;
+
+    public Message(String content, Date createdAt, MESSAGE_STATUS status, User sender, User receiver) {
+        this.content = content;
+        this.createdAt = createdAt;
+        this.status = status;
+        this.sender = sender;
+        this.receiver = receiver;
+    }
 }

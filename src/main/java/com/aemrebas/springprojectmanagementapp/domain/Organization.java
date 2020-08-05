@@ -10,5 +10,10 @@ public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
+
+    public Organization(String name) {
+        this.name = name;
+    }
 }

@@ -19,4 +19,12 @@ public class Issue {
 
     @ManyToOne
     private Project project;
+
+    public Issue(String title, String description, Organization organization, User user, Project project) {
+        this.title = title;
+        this.description = description;
+        this.organization = organization;
+        this.user = user;
+        this.project = project;
+    }
 }

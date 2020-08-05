@@ -1,10 +1,7 @@
 package com.aemrebas.springprojectmanagementapp.domain;
 
 
-import org.springframework.boot.context.properties.bind.DefaultValue;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -14,9 +11,7 @@ public class Comment {
     private Long id;
 
     private String content;
-
-    private Date created_at;
-
+    private Date createdAt;
 
     @ManyToOne
     private Organization organization;
@@ -31,4 +26,12 @@ public class Comment {
     private Project project;
 
 
+    public Comment(String content, Date createdAt, Organization organization, User user, Issue issue, Project project) {
+        this.content = content;
+        this.createdAt = createdAt;
+        this.organization = organization;
+        this.user = user;
+        this.issue = issue;
+        this.project = project;
+    }
 }
