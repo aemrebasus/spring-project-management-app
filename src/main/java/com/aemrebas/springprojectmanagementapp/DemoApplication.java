@@ -1,4 +1,4 @@
-package com.example.springprojectmanagementapp;
+package com.aemrebas.springprojectmanagementapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

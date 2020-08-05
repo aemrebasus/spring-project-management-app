@@ -1,4 +1,4 @@
-package com.example.springprojectmanagementapp;
+package com.aemrebas.springprojectmanagementapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
