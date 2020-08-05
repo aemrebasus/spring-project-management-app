@@ -1,14 +1,19 @@
 package com.aemrebas.springprojectmanagementapp.marketing;
-
+/*
+ @author Ahmet Emrebas on 8/5/2020
+ @project spring-project-management-app
+ @since 1.0.0
+*/
 import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
-
+/**
+ * Promotion is a single standalone entity that stores promotions, ads, and news about the business.
+ */
 @Entity
 @Data
 public class Promotion {
