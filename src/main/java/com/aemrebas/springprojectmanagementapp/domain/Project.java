@@ -32,4 +32,6 @@ public class Project {
         this.createdAt = createdAt;
         this.organization = organization;
     }
+
+    public Project(){}
 }

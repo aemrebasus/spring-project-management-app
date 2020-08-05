@@ -4,12 +4,14 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @project spring-project-management-app
  @since 1.0.0
 */
+
 import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @implNote  belongs to Message class
+ * @implNote belongs to Message class
  */
 enum MESSAGE_STATUS {
     PENDING, DONE, REJECTED
@@ -25,6 +27,7 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String subject;
     private String content;
     private Date createdAt;
     private MESSAGE_STATUS status;
@@ -35,11 +38,15 @@ public class Message {
     @ManyToOne
     private User receiver;
 
-    public Message(String content, Date createdAt, MESSAGE_STATUS status, User sender, User receiver) {
+    public Message(String subject, String content, Date createdAt, User sender, User receiver) {
+        this.subject = subject;
         this.content = content;
         this.createdAt = createdAt;
-        this.status = status;
+        this.status = MESSAGE_STATUS.PENDING;
         this.sender = sender;
         this.receiver = receiver;
+    }
+
+    public Message() {
     }
 }

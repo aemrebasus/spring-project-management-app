@@ -1,29 +1,33 @@
 package com.aemrebas.springprojectmanagementapp.domain;
 /*
- @author Ahmet Emrebas on 8/5/2020
  @project spring-project-management-app
- @since 1.0.0
+ @author Ahmet Emrebas on 8/5/2020
+ @since 1.0.0 
 */
-import lombok.Data;
-import javax.persistence.*;
 
-/**
- * Organization is the top level entity
- * All the entities belong to one organization only.
- */
-@Entity
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity(name = "roles")
 @Data
-public class Organization {
+public class UserRole {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
-    public Organization(String name) {
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
+
+    public UserRole(String name) {
         this.name = name;
     }
 
-    public Organization(){}
+    public UserRole() {
+    }
 }
-

@@ -1,8 +1,10 @@
-package com.aemrebas.springprojectmanagementapp.seed;
+package com.aemrebas.springprojectmanagementapp.configuration;
 
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
+import com.aemrebas.springprojectmanagementapp.domain.Tag;
 import com.aemrebas.springprojectmanagementapp.domain.User;
 import com.aemrebas.springprojectmanagementapp.repositories.OrganizationRepository;
+import com.aemrebas.springprojectmanagementapp.repositories.TagRepository;
 import com.aemrebas.springprojectmanagementapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,16 +20,20 @@ public class SeedDatabase implements CommandLineRunner {
     private UserRepository userRepository;
 
 
+    @Autowired
+    private TagRepository tagRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
-        Organization o1 =  new Organization("KingOFKings");
-
-
+        Organization o1 = new Organization("KingOFKings");
         this.organizationRepository.save(o1);
         this.organizationRepository.save(new Organization("Double It "));
         this.organizationRepository.save(new Organization("Plural Guys"));
 //
+        Tag tag = new Tag("BestOne");
+        this.tagRepository.save(tag);
+
         User u1 = new User();
         u1.setFirstName("Ahmet");
         u1.setPassword("Password");
@@ -35,6 +41,5 @@ public class SeedDatabase implements CommandLineRunner {
         u1.setLastName("emrebas");
 
         this.userRepository.save(u1);
-        this.userRepository.save(new User());
     }
 }

@@ -4,8 +4,10 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @project spring-project-management-app
  @since 1.0.0
 */
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Each comment belongs to one user and one issue.
@@ -19,8 +21,8 @@ public class Comment {
     private String content;
     private Date createdAt;
 
-    @ManyToOne
-    private Organization organization;
+    @ManyToMany
+    private List<Tag> tags;
 
     @ManyToOne
     private User user;
@@ -31,12 +33,14 @@ public class Comment {
     @ManyToOne
     private Project project;
 
-    public Comment(String content, Date createdAt, Organization organization, User user, Issue issue, Project project) {
+    public Comment(String content, Date createdAt, User user, Issue issue, Project project) {
         this.content = content;
         this.createdAt = createdAt;
-        this.organization = organization;
         this.user = user;
         this.issue = issue;
         this.project = project;
+    }
+
+    public Comment() {
     }
 }
