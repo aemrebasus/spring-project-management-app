@@ -20,8 +20,8 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(unique = true)
     private String name;
-
     @ManyToMany(mappedBy = "tags")
     private List<Issue> issues;
 

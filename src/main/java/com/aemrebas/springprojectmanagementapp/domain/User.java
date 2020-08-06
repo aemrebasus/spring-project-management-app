@@ -31,12 +31,11 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
     private String password;
-
     @ManyToMany
     private List<UserRole> roles;
-
     @ManyToOne
     private Organization organization;
 
