@@ -5,12 +5,10 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.controllers.IControllers;
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
 import com.aemrebas.springprojectmanagementapp.services.IssueService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +19,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/v1/issues")
-public class IssueController implements IControllers<Issue, Long> {
+public class IssueController implements IController<Issue, Long> {
 
     @Autowired
     IssueService issueService;

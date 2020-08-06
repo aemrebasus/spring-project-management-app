@@ -13,7 +13,7 @@ import java.util.Optional;
  * @param <T> Type of entity
  * @param <ID> Type of id
  */
-public interface IControllers<T, ID extends Long> {
+public interface IController<T, ID extends Long> {
 
     List<T> getAll();
 

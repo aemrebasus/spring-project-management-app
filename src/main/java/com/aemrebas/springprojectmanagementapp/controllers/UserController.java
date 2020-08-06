@@ -5,7 +5,6 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.controllers.IControllers;
 import com.aemrebas.springprojectmanagementapp.domain.User;
 import com.aemrebas.springprojectmanagementapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController implements IControllers<User, Long> {
+public class UserController implements IController<User, Long> {
 
     @Autowired
     private UserService userService;

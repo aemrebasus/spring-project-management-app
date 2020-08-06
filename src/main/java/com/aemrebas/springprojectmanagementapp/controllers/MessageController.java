@@ -5,7 +5,6 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.controllers.IControllers;
 import com.aemrebas.springprojectmanagementapp.domain.Message;
 import com.aemrebas.springprojectmanagementapp.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/v1/messages")
-public class MessageController implements IControllers<Message, Long> {
+public class MessageController implements IController<Message, Long> {
 
     @Autowired
     private MessageService messageService;
