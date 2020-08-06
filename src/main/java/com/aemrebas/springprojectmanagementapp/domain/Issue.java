@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -30,6 +31,7 @@ public class Issue {
     private Long id;
     private String title;
     private String description;
+    private LocalDateTime createdAt;
 
     @ManyToMany
     private List<Tag> tags;

@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -32,7 +33,7 @@ public class Project {
     @Column(unique = true)
     private String name;
     private String description;
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @ManyToOne
     private Organization organization;

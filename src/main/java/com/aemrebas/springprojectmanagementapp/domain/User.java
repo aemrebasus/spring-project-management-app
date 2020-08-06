@@ -6,10 +6,10 @@ package com.aemrebas.springprojectmanagementapp.domain;
 */
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonRawValue;
+import lombok.*;
 import lombok.experimental.Accessors;
+import lombok.experimental.FieldNameConstants;
 
 import javax.persistence.*;
 import java.lang.reflect.Array;
@@ -40,6 +40,7 @@ public class User {
     private List<UserRole> roles;
     @ManyToOne
     private Organization organization;
+
 
 
 }

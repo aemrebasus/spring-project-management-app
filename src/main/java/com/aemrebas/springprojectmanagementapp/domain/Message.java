@@ -12,14 +12,10 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-/**
- * @implNote belongs to Message class
- */
-enum MESSAGE_STATUS {
-    PENDING, DONE, REJECTED
-}
+
 
 /**
  * Each message belongs to two different user, one is sender and the other is receiver.
@@ -37,7 +33,7 @@ public class Message {
 
     private String subject;
     private String content;
-    private Date createdAt;
+    private LocalDateTime createdAt;
     private MESSAGE_STATUS status;
 
     @ManyToOne

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -30,10 +31,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String content;
-    private Date createdAt;
-
-    @ManyToMany
-    private List<Tag> tags;
+    private LocalDateTime createdAt;
 
     @ManyToOne
     private User user;
@@ -41,7 +39,5 @@ public class Comment {
     @ManyToOne
     private Issue issue;
 
-    @ManyToOne
-    private Project project;
 
 }

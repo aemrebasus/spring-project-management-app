@@ -39,6 +39,8 @@ class SmokeTest {
 
     @Test
     public void contextLoad() throws Exception {
+
+        // TODO: check all beans against Null
         assertThat(userController).isNotNull();
         assertThat(issueController).isNotNull();
         assertThat(messageController).isNotNull();
@@ -51,7 +53,7 @@ class SmokeTest {
         assertThat(messageService).isNotNull();
         assertThat(messageRepository).isNotNull();
 
-        //TODO: Add all assertions here.
+
     }
 
 }
