@@ -6,42 +6,52 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
+import com.aemrebas.springprojectmanagementapp.services.IssueService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+/**
+ * Issues' route controller
+ */
+@RestController
 @RequestMapping("/api/v1/issues")
 public class IssueController implements IControllers<Issue, Long> {
 
     @Autowired
-
+    IssueService issueService;
 
     @Override
+    @GetMapping
     public List<Issue> getAll() {
-        return null;
+        return issueService.findAll();
     }
 
     @Override
-    public Optional<Issue> getById(Long aLong) {
-        return Optional.empty();
+    @GetMapping("{id}")
+    public Optional<Issue> getById(@PathVariable Long id) {
+        return issueService.findById(id);
     }
 
     @Override
-    public void deleteOneById(Long aLong) {
-
+    @DeleteMapping("{id}")
+    public void deleteOneById(@PathVariable Long id) {
+        issueService.deleteById(id);
     }
 
     @Override
-    public void createOne(Issue entity) {
-
+    @PostMapping
+    public void createOne(@RequestBody final Issue entity) {
+        issueService.saveOne(entity);
     }
 
     @Override
-    public void updateOneById(Long aLong, Issue updated) {
-
+    public void updateOneById(final Long aLong, Issue updated) {
+        Issue existingIssue = issueService.findById(aLong).get();
+        BeanUtils.copyProperties(updated, existingIssue, "id");
     }
 }

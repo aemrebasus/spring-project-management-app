@@ -8,6 +8,11 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Every Controller should implement this interface
+ * @param <T> Type of entity
+ * @param <ID> Type of id
+ */
 public interface IControllers<T, ID extends Long> {
 
     List<T> getAll();

@@ -5,9 +5,11 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
@@ -16,6 +18,8 @@ import javax.persistence.*;
  * All the entities belong to one organization only.
  */
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Accessors(chain = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

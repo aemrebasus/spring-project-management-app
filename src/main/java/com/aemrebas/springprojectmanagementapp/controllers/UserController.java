@@ -6,17 +6,15 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.User;
-import com.aemrebas.springprojectmanagementapp.services.IService;
 import com.aemrebas.springprojectmanagementapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Users' end points
+ * Users' route controller
  */
 @RestController
 @RequestMapping("/api/v1/users")

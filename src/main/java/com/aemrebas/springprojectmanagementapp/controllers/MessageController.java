@@ -8,12 +8,14 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 import com.aemrebas.springprojectmanagementapp.domain.Message;
 import com.aemrebas.springprojectmanagementapp.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Messages' route controller
+ */
 @RestController
 @RequestMapping("/api/v1/messages")
 public class MessageController implements IControllers<Message, Long> {
