@@ -7,6 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.User;
 import com.aemrebas.springprojectmanagementapp.repositories.UserRepository;
+import com.aemrebas.springprojectmanagementapp.services.desc.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("userService")
-public class UserServiceImp implements UserService {
+public class UserServiceImp implements UserService<Long> {
 
     @Autowired
     private UserRepository userRepository;

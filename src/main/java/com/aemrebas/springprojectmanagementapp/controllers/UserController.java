@@ -6,10 +6,9 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.User;
-import com.aemrebas.springprojectmanagementapp.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import com.aemrebas.springprojectmanagementapp.services.UserServiceImp;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -17,49 +16,43 @@ import java.util.Optional;
  * Users' route controller
  */
 @RestController
-@RequestMapping("/api/v1/users")
-public class UserController implements IController<User, Long> {
+@RequestMapping("${rest.root}/users")
+public class UserController extends UserServiceImp {
 
-    @Autowired
-    private UserService userService;
-
+    @Override
     @GetMapping
-    @ResponseStatus(HttpStatus.FOUND)
-    public List<User> getAll() {
-        return userService.findAll();
+    public List<User> findAll() {
+        return super.findAll();
     }
 
+    @Override
     @GetMapping("{id}")
-    @ResponseStatus(HttpStatus.FOUND)
-    public Optional<User> getById(@PathVariable("id") Long id) {
-        return userService.findById(id);
+    public Optional<User> findById(@PathVariable Long id) {
+        return super.findById(id);
     }
 
-
-    @RequestMapping(value = "/org/{id}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.FOUND)
-    public List<User> getByOrganizationId(@PathVariable Long id) {
-        return userService.findByOrganizationId(id);
+    @Override
+    @GetMapping("/org/{id}")
+    public List<User> findByOrganizationId(@PathVariable Long id) {
+        return super.findByOrganizationId(id);
     }
 
-
+    @Override
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createOne(@RequestBody final User user) {
-        userService.saveOne(user);
+    public void saveOne(User user) {
+        super.saveOne(user);
     }
 
-
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteOneById(@PathVariable Long id) {
-        userService.deleteById(id);
+    @Override
+    @PutMapping("{id}")
+    public void updateOneById(@PathVariable Long id, @RequestBody User updatedUser) {
+        super.updateOneById(id, updatedUser);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void updateOneById(@PathVariable Long id, @RequestBody User user) {
-        userService.updateOneById(id, user);
+    @Override
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) {
+        super.deleteById(id);
     }
 }
 

@@ -1,10 +1,7 @@
 package com.aemrebas.springprojectmanagementapp.controllers;
 
-import com.aemrebas.springprojectmanagementapp.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.context.event.annotation.AfterTestMethod;
-import org.springframework.test.context.event.annotation.BeforeTestMethod;
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

@@ -1,4 +1,4 @@
-package com.aemrebas.springprojectmanagementapp.services;
+package com.aemrebas.springprojectmanagementapp.services.desc;
 /*
  @project spring-project-management-app
  @author Ahmet Emrebas on 8/5/2020
@@ -9,8 +9,8 @@ import com.aemrebas.springprojectmanagementapp.domain.User;
 
 import java.util.List;
 
-public interface UserService extends IService<User> {
+public interface UserService<ID> extends IService<User, ID> {
 
-    List<User> findByOrganizationId(Long id);
+    List<User> findByOrganizationId(ID id);
 
 }

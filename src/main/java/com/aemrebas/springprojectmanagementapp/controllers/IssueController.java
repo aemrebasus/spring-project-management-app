@@ -6,11 +6,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
-import com.aemrebas.springprojectmanagementapp.services.IssueService;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.aemrebas.springprojectmanagementapp.services.IssueServiceImp;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -18,39 +15,48 @@ import java.util.Optional;
  * Issues' route controller
  */
 @RestController
-@RequestMapping("/api/v1/issues")
-public class IssueController implements IController<Issue, Long> {
-
-    @Autowired
-    IssueService issueService;
+@RequestMapping("${rest.root}/issues")
+public class IssueController extends IssueServiceImp {
 
     @Override
     @GetMapping
-    public List<Issue> getAll() {
-        return issueService.findAll();
+    public List<Issue> findAll() {
+        return super.findAll();
     }
 
     @Override
     @GetMapping("{id}")
-    public Optional<Issue> getById(@PathVariable Long id) {
-        return issueService.findById(id);
+    public Optional<Issue> findById(@PathVariable Long id) {
+        return super.findById(id);
     }
 
     @Override
-    @DeleteMapping("{id}")
-    public void deleteOneById(@PathVariable Long id) {
-        issueService.deleteById(id);
+    @GetMapping("/tag/{name}")
+    public List<Issue> findAllIssuesByTagName(@PathVariable String name) {
+        return super.findAllIssuesByTagName(name);
+    }
+
+    @Override
+    @GetMapping("/user/{id}")
+    public List<Issue> findAllIssuesByUserId(@PathVariable Long id) {
+        return super.findAllIssuesByUserId(id);
     }
 
     @Override
     @PostMapping
-    public void createOne(@RequestBody final Issue entity) {
-        issueService.saveOne(entity);
+    public void saveOne(@RequestBody Issue entity) {
+        super.saveOne(entity);
     }
 
     @Override
-    public void updateOneById(final Long aLong, Issue updated) {
-        Issue existingIssue = issueService.findById(aLong).get();
-        BeanUtils.copyProperties(updated, existingIssue, "id");
+    @PutMapping("{id}")
+    public void updateOneById(@PathVariable Long id, @RequestBody Issue entity) {
+        super.updateOneById(id, entity);
+    }
+
+    @Override
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) {
+        super.deleteById(id);
     }
 }

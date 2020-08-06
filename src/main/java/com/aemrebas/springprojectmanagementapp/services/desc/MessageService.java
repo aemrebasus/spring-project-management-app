@@ -1,4 +1,4 @@
-package com.aemrebas.springprojectmanagementapp.services;
+package com.aemrebas.springprojectmanagementapp.services.desc;
 /*
  @project spring-project-management-app
  @author Ahmet Emrebas on 8/5/2020
@@ -7,6 +7,6 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Message;
 
-public interface MessageService extends IService<Message> {
+public interface MessageService<ID> extends IService<Message,ID> {
 
 }

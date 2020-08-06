@@ -7,6 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Comment;
 import com.aemrebas.springprojectmanagementapp.repositories.CommentRepository;
+import com.aemrebas.springprojectmanagementapp.services.desc.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service("commentService")
-public class CommentServiceImp implements CommentService {
+public class CommentServiceImp implements CommentService<Long> {
 
     @Autowired
     private CommentRepository commentRepository;

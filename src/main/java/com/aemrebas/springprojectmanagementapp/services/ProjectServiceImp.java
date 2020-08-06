@@ -7,15 +7,15 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Project;
 import com.aemrebas.springprojectmanagementapp.repositories.ProjectRepository;
+import com.aemrebas.springprojectmanagementapp.services.desc.ProjectService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service("projectService")
-public class ProjectServiceImp implements ProjectService {
+public class ProjectServiceImp implements ProjectService<Long> {
 
     @Autowired
     private ProjectRepository projectRepository;

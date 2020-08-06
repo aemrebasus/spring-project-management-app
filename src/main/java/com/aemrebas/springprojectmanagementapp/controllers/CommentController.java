@@ -6,51 +6,62 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Comment;
-import com.aemrebas.springprojectmanagementapp.services.CommentService;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.aemrebas.springprojectmanagementapp.services.CommentServiceImp;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/comments")
-public class CommentController implements IController<Comment, Long> {
-
-    @Autowired
-    private CommentService commentService;
+@RequestMapping("${rest.root}/comments")
+public class CommentController extends CommentServiceImp {
 
     @Override
     @GetMapping
-    public List<Comment> getAll() {
-        return commentService.findAll();
+    public List<Comment> findAll() {
+        return super.findAll();
     }
 
     @Override
-    @GetMapping("{id}")
-    public Optional<Comment> getById(@PathVariable Long id) {
-        return commentService.findById(id);
+    @GetMapping("${rest.byId}")
+    public Optional<Comment> findById(@PathVariable Long id) {
+        return super.findById(id);
     }
 
     @Override
-    @DeleteMapping("{id}")
-    public void deleteOneById(@PathVariable Long id) {
-        commentService.deleteById(id);
+    @GetMapping("${rest.byIssueId}")
+    public List<Comment> findAllCommentsByIssueId(@PathVariable Long id) {
+        return super.findAllCommentsByIssueId(id);
+    }
+
+    @Override
+    @GetMapping("${rest.byContentContains}")
+    public List<Comment> findAllCommentsByContentContains(@PathVariable String content) {
+        return super.findAllCommentsByContentContains(content);
+    }
+
+    @Override
+    @GetMapping("/user/{id}")
+    public List<Comment> findAllCommentsByUserId(@PathVariable Long id) {
+        return super.findAllCommentsByUserId(id);
     }
 
     @Override
     @PostMapping
-    public void createOne(@RequestBody Comment entity) {
-        commentService.saveOne(entity);
+    public void saveOne(@RequestBody Comment entity) {
+        super.saveOne(entity);
     }
 
     @Override
     @PutMapping("{id}")
-    public void updateOneById(@PathVariable Long id, Comment updated) {
-        Comment existingComment = commentService.findById(id).get();
-        BeanUtils.copyProperties(updated, existingComment, "id");
+    public void updateOneById(@PathVariable Long id, @RequestBody Comment entity) {
+        super.updateOneById(id, entity);
     }
 
+    @Override
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) {
+        super.deleteById(id);
+    }
 
 }

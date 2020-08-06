@@ -6,53 +6,68 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Project;
-import com.aemrebas.springprojectmanagementapp.services.ProjectService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.aemrebas.springprojectmanagementapp.services.ProjectServiceImp;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/api/v1/projects")
-public class ProjectController implements IController<Project, Long> {
 
-    @Autowired
-    private ProjectService projectService;
+@RestController
+@RequestMapping("${rest.root}${rest.projects}")
+public class ProjectController extends ProjectServiceImp {
 
     @Override
     @GetMapping
-    public List<Project> getAll() {
-        return projectService.findAll();
+    public List<Project> findAll() {
+        return super.findAll();
     }
 
     @Override
     @GetMapping("{id}")
-    public Optional<Project> getById(@PathVariable Long id) {
-        return projectService.findById(id);
+    public Optional<Project> findById(@PathVariable Long id) {
+        return super.findById(id);
     }
-
-    @GetMapping("/name/{name}")
-    public Optional<Project> getByName(@PathVariable String name) {
-        return projectService.findOneProjectByName(name);
-    }
-
-    @Override
-    @DeleteMapping("{id}")
-    public void deleteOneById(@PathVariable Long id) {
-        projectService.deleteById(id);
-    }
-
 
     @Override
     @PostMapping
-    public void createOne(@RequestBody Project entity) {
-        projectService.saveOne(entity);
+    public void saveOne(@RequestBody Project entity) {
+        super.saveOne(entity);
     }
 
     @Override
     @PutMapping("{id}")
-    public void updateOneById(@PathVariable Long id, @RequestBody Project updated) {
-        projectService.updateOneById(id, updated);
+    public void updateOneById(@PathVariable Long id, @RequestBody Project entity) {
+        super.updateOneById(id, entity);
+    }
+
+    @Override
+    @DeleteMapping("{id}")
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+
+    @Override
+    @GetMapping("/org/{id}")
+    public List<Project> findAllProjectsByOrganizationId(@PathVariable Long id) {
+        return super.findAllProjectsByOrganizationId(id);
+    }
+
+    @Override
+    @GetMapping("/description/{description}")
+    public List<Project> findAllProjectsByDescriptionContains(@PathVariable String description) {
+        return super.findAllProjectsByDescriptionContains(description);
+    }
+
+    @Override
+    @GetMapping("/name/{name}")
+    public Optional<Project> findOneProjectByName(@PathVariable String name) {
+        return super.findOneProjectByName(name);
+    }
+
+    @Override
+    @GetMapping("/name/contains/{name}")
+    public Optional<Project> findOneProjectByNameContains(@PathVariable String name) {
+        return super.findOneProjectByNameContains(name);
     }
 }
