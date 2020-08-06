@@ -12,13 +12,13 @@ public interface IControllers<T, ID extends Long> {
 
     List<T> getAll();
 
-    Optional<T> getById(ID id);
+    Optional<T> getById(final ID id);
 
-    void deleteOneById(ID id);
+    void deleteOneById(final ID id);
 
-    void createOne(T entity);
+    void createOne(final T entity);
 
-    void updateOneById(ID id, T updated);
+    void updateOneById(final ID id, final T updated);
 
 
 }

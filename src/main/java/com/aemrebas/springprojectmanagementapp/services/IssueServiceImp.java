@@ -6,7 +6,6 @@ package com.aemrebas.springprojectmanagementapp.services;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
-import com.aemrebas.springprojectmanagementapp.domain.User;
 import com.aemrebas.springprojectmanagementapp.repositories.IssueRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
