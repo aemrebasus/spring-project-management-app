@@ -5,6 +5,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
+import com.aemrebas.springprojectmanagementapp.controllers.IControllers;
 import com.aemrebas.springprojectmanagementapp.domain.Message;
 import com.aemrebas.springprojectmanagementapp.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

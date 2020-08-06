@@ -5,6 +5,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
+import com.aemrebas.springprojectmanagementapp.controllers.IControllers;
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
 import com.aemrebas.springprojectmanagementapp.services.IssueService;
 import org.springframework.beans.BeanUtils;
