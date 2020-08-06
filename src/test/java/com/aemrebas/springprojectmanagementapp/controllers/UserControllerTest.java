@@ -3,6 +3,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 import com.aemrebas.springprojectmanagementapp.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,6 @@ class UserControllerTest extends BaseController {
         expectedData.add(user.getLastName());
         expectedData.add(user.getEmail());
 
-        isRequestReturningTheExpectedData(get("/api/v1/users"), service.findAll(), users, expectedData);
+        it(get("/api/v1/users"), service.findAll(), users, expectedData);
     }
 }

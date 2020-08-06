@@ -25,6 +25,25 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
+
+/**
+ * @implSpec example test method
+ *         User user = new User()
+ *                 .setFirstName("Ahmet")
+ *                 .setLastName("Emrebas")
+ *                 .setEmail("aemrebasus@gmail.com");
+ *
+ *         users.add(user);
+ *
+ *         List<String> expectedData = new ArrayList<>();
+ *         expectedData.add(user.getFirstName());
+ *         expectedData.add(user.getLastName());
+ *         expectedData.add(user.getEmail());
+ *
+ *         it(get("/api/v1/users"), service.findAll(), users, expectedData);
+ *
+ * @param <T>
+ */
 public class BaseController<T> {
 
     // TODO: Create List of each Entity above. They will be used inside the corresponding TestClass
@@ -40,7 +59,16 @@ public class BaseController<T> {
     @Autowired
     protected MockMvc mockMvc;
 
-    void isRequestReturningTheExpectedData(MockHttpServletRequestBuilder request, T serviceMethodResponse, T mockedResponse, List<String> expectedData) throws Exception {
+    /**
+     * Request
+     *
+     * @param request               is get, post, put, or delete  inside the @package org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+     * @param serviceMethodResponse returnedValue of the service's method ( run the service method)
+     * @param mockedResponse        you must create a dummy data and store it inside the corresponding storage above (users, issues, messages etc.) use the add method!
+     * @param expectedData          is the list of string that containing the value of created entity fields like firstName, lastName, etc.
+     * @throws Exception
+     */
+    void it(MockHttpServletRequestBuilder request, T serviceMethodResponse, T mockedResponse, List<String> expectedData) throws Exception {
         when(serviceMethodResponse).thenReturn(mockedResponse);
         ResultActions actions = mockMvc.perform(get("/api/v1/users")).andDo(print());
         for (String text : expectedData) {
