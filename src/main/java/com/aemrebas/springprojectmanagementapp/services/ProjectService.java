@@ -8,13 +8,14 @@ package com.aemrebas.springprojectmanagementapp.services;
 import com.aemrebas.springprojectmanagementapp.domain.Project;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProjectService extends IService<Project> {
     List<Project> findAllProjectsByOrganizationId(Long id);
 
     List<Project> findAllProjectsByDescriptionContains(String description);
 
-    Project findOneProjectByName(String name);
+    Optional<Project> findOneProjectByName(String name);
 
-    Project findOneProjectByNameContains(String name);
+    Optional<Project> findOneProjectByNameContains(String name);
 }

@@ -57,12 +57,12 @@ public class ProjectServiceImp implements ProjectService {
     }
 
     @Override
-    public Project findOneProjectByName(String name) {
+    public Optional<Project> findOneProjectByName(String name) {
         return projectRepository.findOneProjectByName(name);
     }
 
     @Override
-    public Project findOneProjectByNameContains(String name) {
+    public Optional<Project> findOneProjectByNameContains(String name) {
         return projectRepository.findOneProjectByNameContains(name);
     }
 }
