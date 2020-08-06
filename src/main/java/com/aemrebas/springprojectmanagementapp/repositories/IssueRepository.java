@@ -6,14 +6,13 @@ package com.aemrebas.springprojectmanagementapp.repositories;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface IssueRepository extends CrudRepository<Issue, Long> {
+public interface IssueRepository extends JpaRepository<Issue, Long> {
     List<Issue> findAllIssuesByProjectId(Long id);
-
     List<Issue> findAllIssuesByUserId(Long id);
-
     List<Issue> findAllIssuesByTagsName(String tagName);
 }

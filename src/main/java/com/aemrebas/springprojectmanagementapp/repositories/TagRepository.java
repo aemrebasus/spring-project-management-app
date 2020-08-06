@@ -5,11 +5,9 @@ package com.aemrebas.springprojectmanagementapp.repositories;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.domain.Issue;
 import com.aemrebas.springprojectmanagementapp.domain.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
 

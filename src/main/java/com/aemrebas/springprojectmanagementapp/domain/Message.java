@@ -5,7 +5,9 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,6 +24,8 @@ enum MESSAGE_STATUS {
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,15 +42,4 @@ public class Message {
     @ManyToOne
     private User receiver;
 
-    public Message(String subject, String content, Date createdAt, User sender, User receiver) {
-        this.subject = subject;
-        this.content = content;
-        this.createdAt = createdAt;
-        this.status = MESSAGE_STATUS.PENDING;
-        this.sender = sender;
-        this.receiver = receiver;
-    }
-
-    public Message() {
-    }
 }

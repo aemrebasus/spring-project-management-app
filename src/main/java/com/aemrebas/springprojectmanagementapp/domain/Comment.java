@@ -5,6 +5,10 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +18,9 @@ import java.util.List;
  * It is not necessarily that the issue is assigned to the user
  */
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,14 +40,4 @@ public class Comment {
     @ManyToOne
     private Project project;
 
-    public Comment(String content, Date createdAt, User user, Issue issue, Project project) {
-        this.content = content;
-        this.createdAt = createdAt;
-        this.user = user;
-        this.issue = issue;
-        this.project = project;
-    }
-
-    public Comment() {
-    }
 }

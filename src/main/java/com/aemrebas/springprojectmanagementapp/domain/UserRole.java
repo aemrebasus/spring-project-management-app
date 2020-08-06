@@ -5,13 +5,17 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0 
 */
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "roles")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRole {
 
     @Id
@@ -24,10 +28,4 @@ public class UserRole {
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public UserRole(String name) {
-        this.name = name;
-    }
-
-    public UserRole() {
-    }
 }

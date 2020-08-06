@@ -4,8 +4,12 @@ package com.aemrebas.springprojectmanagementapp.repositories;
  @project spring-project-management-app
  @since 1.0.0
 */
-import com.aemrebas.springprojectmanagementapp.domain.Project;
-import org.springframework.data.repository.CrudRepository;
 
-public interface ProjectRepository extends CrudRepository<Project, Long> {
+import com.aemrebas.springprojectmanagementapp.domain.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+    List<Project> findAllProjectsByOrganizationId(Long id);
 }

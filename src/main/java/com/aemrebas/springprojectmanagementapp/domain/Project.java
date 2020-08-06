@@ -4,7 +4,13 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @project spring-project-management-app
  @since 1.0.0
 */
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.Accessors;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,12 +19,14 @@ import java.util.Date;
  * Every comment belongs to one project only.
  */
 @Entity
+@Accessors(chain = true)
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
     private String description;
     private Date createdAt;
@@ -26,12 +34,4 @@ public class Project {
     @ManyToOne
     private Organization organization;
 
-    public Project(String name, String description, Date createdAt, Organization organization) {
-        this.name = name;
-        this.description = description;
-        this.createdAt = createdAt;
-        this.organization = organization;
-    }
-
-    public Project(){}
 }

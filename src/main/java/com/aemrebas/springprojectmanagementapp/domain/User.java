@@ -6,7 +6,9 @@ package com.aemrebas.springprojectmanagementapp.domain;
 */
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.lang.reflect.Array;
@@ -20,6 +22,8 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -35,17 +39,6 @@ public class User {
 
     @ManyToOne
     private Organization organization;
-
-    public User(String firstName, String lastName, String password, List<Tag> tags, Organization organization) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-
-        this.organization = organization;
-    }
-
-    public User() {
-    }
 
 
 }

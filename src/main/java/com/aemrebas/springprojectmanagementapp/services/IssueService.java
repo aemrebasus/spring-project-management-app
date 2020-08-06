@@ -7,5 +7,10 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
 
+import java.util.List;
+
 public interface IssueService extends IService<Issue> {
+    List<Issue> findAllIssuesByTagName(String name);
+
+    List<Issue> findAllIssuesByUserId(Long id);
 }

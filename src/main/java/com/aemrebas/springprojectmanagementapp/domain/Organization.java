@@ -4,7 +4,11 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @project spring-project-management-app
  @since 1.0.0
 */
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 /**
@@ -13,17 +17,13 @@ import javax.persistence.*;
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
 
-    public Organization(String name) {
-        this.name = name;
-    }
-
-    public Organization(){}
 }
 

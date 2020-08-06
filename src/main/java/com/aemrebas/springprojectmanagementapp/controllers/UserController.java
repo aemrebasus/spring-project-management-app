@@ -6,6 +6,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.User;
+import com.aemrebas.springprojectmanagementapp.services.IService;
 import com.aemrebas.springprojectmanagementapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/v1/users")
-public class UserController {
+public class UserController implements IControllers<User, Long> {
 
     @Autowired
     private UserService userService;
@@ -35,6 +36,7 @@ public class UserController {
     public Optional<User> getById(@PathVariable("id") Long id) {
         return userService.findById(id);
     }
+
 
     @RequestMapping(value = "/org/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.FOUND)

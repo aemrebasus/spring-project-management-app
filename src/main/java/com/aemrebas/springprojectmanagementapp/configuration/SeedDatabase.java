@@ -19,19 +19,18 @@ public class SeedDatabase implements CommandLineRunner {
     @Autowired
     private UserRepository userRepository;
 
-
     @Autowired
     private TagRepository tagRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        Organization o1 = new Organization("KingOFKings");
+        Organization o1 = new Organization(null, "KingOFKings");
         this.organizationRepository.save(o1);
-        this.organizationRepository.save(new Organization("Double It "));
-        this.organizationRepository.save(new Organization("Plural Guys"));
+        this.organizationRepository.save(new Organization(null, "Double It "));
+        this.organizationRepository.save(new Organization(null, "Plural Guys"));
 //
-        Tag tag = new Tag("BestOne");
+        Tag tag = new Tag(null, "AHmet", null);
         this.tagRepository.save(tag);
 
         User u1 = new User();

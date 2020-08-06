@@ -5,6 +5,10 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +17,9 @@ import java.util.List;
  * The user and project must belongs to the organization.
  */
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Issue {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,15 +35,4 @@ public class Issue {
 
     @ManyToOne
     private Project project;
-
-
-    public Issue(String title, String description, User user, Project project) {
-        this.title = title;
-        this.description = description;
-        this.user = user;
-        this.project = project;
-    }
-
-    public Issue() {
-    }
 }
