@@ -1,10 +1,12 @@
 package com.aemrebas.springprojectmanagementapp.controllers;
 
-import com.aemrebas.springprojectmanagementapp.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.aemrebas.springprojectmanagementapp.domain.User;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 /*
  @project spring-project-management-app
@@ -12,13 +14,24 @@ import org.springframework.test.web.servlet.MockMvc;
  @since 1.0.0 
 */
 
-@WebMvcTest
-class UserControllerTest {
+@WebMvcTest(UserController.class)
+class UserControllerTest extends BaseController {
 
-    @Autowired
-    private MockMvc mockMvc;
 
-    @MockBean
-    private UserService userService;
+    @Test
+    void getAllMustReturnAllUsersFromService() throws Exception {
+        User user = new User()
+                .setFirstName("Ahmet")
+                .setLastName("Emrebas")
+                .setEmail("aemrebasus@gmail.com");
 
+        users.add(user);
+
+        List<String> expectedData = new ArrayList<>();
+        expectedData.add(user.getFirstName());
+        expectedData.add(user.getLastName());
+        expectedData.add(user.getEmail());
+
+        isRequestReturningTheExpectedData(get("/api/v1/users"), service.findAll(), users, expectedData);
+    }
 }
