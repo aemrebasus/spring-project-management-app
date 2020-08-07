@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("${rest.components}")
+@RequestMapping("${rest.comments}")
 public class CommentController extends CommentServiceImp {
 
     @Override

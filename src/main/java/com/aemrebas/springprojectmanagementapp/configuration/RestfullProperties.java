@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties("rest")
 @PropertySource("classpath:restfull.properties")
-public class RestProperties {
+public class RestfullProperties {
     @Getter private static String root;
     @Getter private static String projects;
     @Getter private static String users;
@@ -49,6 +49,10 @@ public class RestProperties {
     @Getter private static String byContentContains;
     @Getter private static String byDescription;
     @Getter private static String byDescriptionContains;
+
+    @Getter private static String byEmail;
+
+    @Getter private static String byUserRole;
 
 
 

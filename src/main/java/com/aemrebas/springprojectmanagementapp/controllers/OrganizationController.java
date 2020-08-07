@@ -5,7 +5,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.configuration.RestProperties;
+import com.aemrebas.springprojectmanagementapp.configuration.RestfullProperties;
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
 import com.aemrebas.springprojectmanagementapp.services.OrganizationServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,6 @@ import java.util.Optional;
 @RequestMapping("${rest.organizations}")
 public class OrganizationController extends OrganizationServiceImp {
 
-    @Autowired
-    private RestProperties restProperties;
 
     @Override
     @GetMapping

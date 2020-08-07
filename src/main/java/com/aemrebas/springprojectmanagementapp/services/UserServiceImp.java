@@ -37,6 +37,16 @@ public class UserServiceImp implements UserService<Long> {
     }
 
     @Override
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findOneUserByEmail(email);
+    }
+
+    @Override
+    public List<User> findByUserRolesName(String name) {
+        return userRepository.findByUserRolesName(name);
+    }
+
+    @Override
     public void saveOne(User user) {
         userRepository.save(user);
     }
@@ -51,4 +61,5 @@ public class UserServiceImp implements UserService<Long> {
     public void deleteById(Long id) {
         userRepository.deleteById(id);
     }
+
 }

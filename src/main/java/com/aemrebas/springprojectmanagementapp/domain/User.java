@@ -37,10 +37,9 @@ public class User {
     private String email;
     private String password;
     @ManyToMany
-    private List<UserRole> roles;
+    private List<UserRole> userRoles;
     @ManyToOne
     private Organization organization;
-
 
 
 }

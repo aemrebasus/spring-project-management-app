@@ -8,9 +8,14 @@ package com.aemrebas.springprojectmanagementapp.services.desc;
 import com.aemrebas.springprojectmanagementapp.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService<ID> extends IService<User, ID> {
 
     List<User> findByOrganizationId(ID id);
+
+    Optional<User> findByEmail(String email);
+
+    List<User> findByUserRolesName(String name);
 
 }

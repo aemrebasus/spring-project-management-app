@@ -36,6 +36,9 @@ public class Issue {
     @ManyToMany
     private List<Tag> tags;
 
+    @ManyToMany
+    private List<User> contributors;
+
     @ManyToOne
     private User user;
 

@@ -36,7 +36,7 @@ public class ProjectController extends ProjectServiceImp {
     }
 
     @Override
-    @PutMapping("${rest.ById}")
+    @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Project entity) {
         super.updateOneById(id, entity);
     }
