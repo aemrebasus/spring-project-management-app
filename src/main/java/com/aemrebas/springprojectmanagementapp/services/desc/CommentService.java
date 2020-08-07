@@ -12,6 +12,8 @@ import java.util.List;
 public interface CommentService<ID> extends IService<Comment, ID> {
     List<Comment> findAllCommentsByIssueId(ID id);
 
+    List<Comment> findAllCommentsByContent(String content);
+
     List<Comment> findAllCommentsByContentContains(String content);
 
     List<Comment> findAllCommentsByUserId(ID id);

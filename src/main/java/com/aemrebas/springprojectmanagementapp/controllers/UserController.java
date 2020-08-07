@@ -26,7 +26,7 @@ public class UserController extends UserServiceImp {
     }
 
     @Override
-    @GetMapping("${rest.byId")
+    @GetMapping("${rest.byId}")
     public Optional<User> findById(@PathVariable Long id) {
         return super.findById(id);
     }

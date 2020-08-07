@@ -12,7 +12,12 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface IssueRepository extends JpaRepository<Issue, Long> {
-    List<Issue> findAllIssuesByProjectId(Long id);
+
+
     List<Issue> findAllIssuesByUserId(Long id);
+
     List<Issue> findAllIssuesByTagsName(String tagName);
+    List<Issue> findAllIssuesByProjectId(Long id);
+    List<Issue> findAllIssuesByProjectOrganizationName(String organizationName);
+    List<Issue> findAllIssuesByProjectOrganizationId(Long id);
 }

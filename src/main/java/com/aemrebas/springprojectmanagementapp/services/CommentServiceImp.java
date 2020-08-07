@@ -53,6 +53,11 @@ public class CommentServiceImp implements CommentService<Long> {
     }
 
     @Override
+    public List<Comment> findAllCommentsByContent(String content) {
+        return commentRepository.findAllCommentsByContent(content);
+    }
+
+    @Override
     public List<Comment> findAllCommentsByContentContains(String content) {
         return commentRepository.findAllCommentsByContentContains(content);
     }

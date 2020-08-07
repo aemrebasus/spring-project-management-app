@@ -16,7 +16,7 @@ import java.util.Optional;
  * Issues' route controller
  */
 @RestController
-@RequestMapping("${rest.root}/issues")
+@RequestMapping("${rest.issues}")
 public class IssueController extends IssueServiceImp {
 
     @Override
@@ -43,6 +43,25 @@ public class IssueController extends IssueServiceImp {
         return super.findAllIssuesByUserId(id);
     }
 
+
+    @Override
+    @GetMapping("${rest.byProjectId}")
+    public List<Issue> findAllIssuesByProjectId(@PathVariable Long id) {
+        return super.findAllIssuesByProjectId(id);
+    }
+
+    @Override
+    @GetMapping("${rest.byOrganizationName}")
+    public List<Issue> findAllIssuesByProjectOrganizationName(@PathVariable String organizationName) {
+        return super.findAllIssuesByProjectOrganizationName(organizationName);
+    }
+
+    @Override
+    @GetMapping("${rest.byOrganizationId}")
+    public List<Issue> findAllIssuesByProjectOrganizationId(@PathVariable Long id) {
+        return super.findAllIssuesByProjectOrganizationId(id);
+    }
+
     @Override
     @PostMapping
     public void saveOne(@RequestBody Issue entity) {
@@ -56,7 +75,7 @@ public class IssueController extends IssueServiceImp {
     }
 
     @Override
-    @DeleteMapping("${rest.byId")
+    @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
         super.deleteById(id);
     }

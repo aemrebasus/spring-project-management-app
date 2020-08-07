@@ -20,4 +20,7 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     List<Message> findAllMessagesByContentContains(String content);
 
     List<Message> findAllMessagesBySenderIdAndReceiverId(Long senderId, Long receiverId);
+
+    List<Message> findAllMessagesBySenderEmail(String email);
+
 }

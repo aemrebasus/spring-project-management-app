@@ -25,6 +25,7 @@ public class CommentController extends CommentServiceImp {
     @Override
     @GetMapping("${rest.byId}")
     public Optional<Comment> findById(@PathVariable Long id) {
+
         return super.findById(id);
     }
 
@@ -35,13 +36,19 @@ public class CommentController extends CommentServiceImp {
     }
 
     @Override
+    @GetMapping("${rest.byContent}")
+    public List<Comment> findAllCommentsByContent(@PathVariable String content) {
+        return super.findAllCommentsByContent(content);
+    }
+
+    @Override
     @GetMapping("${rest.byContentContains}")
     public List<Comment> findAllCommentsByContentContains(@PathVariable String content) {
         return super.findAllCommentsByContentContains(content);
     }
 
     @Override
-    @GetMapping("${rest.byUserId")
+    @GetMapping("${rest.byUserId}")
     public List<Comment> findAllCommentsByUserId(@PathVariable Long id) {
         return super.findAllCommentsByUserId(id);
     }
@@ -53,13 +60,13 @@ public class CommentController extends CommentServiceImp {
     }
 
     @Override
-    @PutMapping("${rest.byId")
+    @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Comment entity) {
         super.updateOneById(id, entity);
     }
 
     @Override
-    @DeleteMapping("${rest.byId")
+    @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
         super.deleteById(id);
     }

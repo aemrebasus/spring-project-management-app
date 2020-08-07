@@ -5,6 +5,7 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import lombok.*;
@@ -21,7 +22,7 @@ import java.util.List;
  * Every user belongs to one organization only.
  */
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "organization", "userRoles"})
 @Accessors(chain = true)
 @Data
 @AllArgsConstructor
@@ -36,8 +37,10 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+
     @ManyToMany
     private List<UserRole> userRoles;
+
     @ManyToOne
     private Organization organization;
 

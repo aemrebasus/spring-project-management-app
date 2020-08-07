@@ -5,6 +5,7 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,14 +35,18 @@ public class Issue {
     private LocalDateTime createdAt;
 
     @ManyToMany(mappedBy = "issues")
+    @JsonIgnore
     private List<Tag> tags;
 
     @ManyToMany
+    @JsonIgnore
     private List<User> contributors;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     @ManyToOne
+    @JsonIgnore
     private Project project;
 }

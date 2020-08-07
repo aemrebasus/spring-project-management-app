@@ -47,7 +47,7 @@ public class SeedDatabase implements CommandLineRunner {
         Provider<List<Issue>> rndIssues = () -> (List<Issue>) issueService.findAll().subList(0, rnd10.get());
 
         Consumer<Runnable> tenTimes = (functionalInterface) -> {
-            for (int i = 0; i < 10; i++) functionalInterface.run();
+            for (int i = 0; i < 30; i++) functionalInterface.run();
         };
 
 

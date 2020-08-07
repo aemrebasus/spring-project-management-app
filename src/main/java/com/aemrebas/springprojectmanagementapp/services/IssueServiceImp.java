@@ -42,6 +42,22 @@ public class IssueServiceImp implements IssueService<Long> {
     }
 
     @Override
+    public List<Issue> findAllIssuesByProjectId(Long id) {
+        return issueRepository.findAllIssuesByProjectId(id);
+    }
+
+    @Override
+    public List<Issue> findAllIssuesByProjectOrganizationName(String organizationName) {
+        return issueRepository.findAllIssuesByProjectOrganizationName(organizationName);
+    }
+
+
+    @Override
+    public List<Issue> findAllIssuesByProjectOrganizationId(Long id) {
+        return issueRepository.findAllIssuesByProjectOrganizationId(id);
+    }
+
+    @Override
     public void saveOne(Issue entity) {
         issueRepository.save(entity);
     }

@@ -5,7 +5,9 @@ package com.aemrebas.springprojectmanagementapp.domain;
  @since 1.0.0
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +16,6 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
-
 
 
 /**
@@ -37,9 +38,11 @@ public class Message {
     private MESSAGE_STATUS status;
 
     @ManyToOne
+    @JsonIgnore
     private User sender;
 
     @ManyToOne
+    @JsonIgnore
     private User receiver;
 
 }

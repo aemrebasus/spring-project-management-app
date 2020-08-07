@@ -5,10 +5,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.configuration.RestfullProperties;
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
 import com.aemrebas.springprojectmanagementapp.services.OrganizationServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -12,4 +12,7 @@ import java.util.List;
 public interface IssueService<ID> extends IService<Issue,ID> {
     List<Issue> findAllIssuesByTagName(String name);
     List<Issue> findAllIssuesByUserId(Long id);
+    List<Issue> findAllIssuesByProjectOrganizationId(Long id);
+    List<Issue> findAllIssuesByProjectOrganizationName(String organizationName);
+    List<Issue> findAllIssuesByProjectId(Long id);
 }

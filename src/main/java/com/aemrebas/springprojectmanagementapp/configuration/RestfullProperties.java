@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.annotation.AccessType;
 import org.springframework.stereotype.Component;
 
 /*
@@ -18,43 +19,30 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties("rest")
 @PropertySource("classpath:restfull.properties")
-public class RestfullProperties {
-    @Getter private static String root;
-    @Getter private static String projects;
-    @Getter private static String users;
-    @Getter private static String organizations;
-    @Getter private static String comments;
-    @Getter private static String messages;
-    @Getter private static String issues;
-    @Getter private static String tags;
-    @Getter private static String roles;
-
-
-
-    @Getter private static String byId;
-    @Getter private static String byOrganizationId;
-    @Getter private static String byUserId;
-    @Getter private static String byIssueId;
-    @Getter private static String byProjectId;
-
-
-    @Getter private static String byName;
-    @Getter private static String byOrganizationName;
-    @Getter private static String byProjectName;
-    @Getter private static String byTagName;
-    @Getter private static String byUserName;
-
-
-    @Getter private static String byContent;
-    @Getter private static String byContentContains;
-    @Getter private static String byDescription;
-    @Getter private static String byDescriptionContains;
-
-    @Getter private static String byEmail;
-
-    @Getter private static String byUserRole;
-
-
-
+public class RestFullProperties {
+    private String root;
+    private String projects;
+    private String users;
+    private String organizations;
+    private String comments;
+    private String messages;
+    private String issues;
+    private String tags;
+    private String roles;
+    private String byId;
+    private String byOrganizationId;
+    private String byUserId;
+    private String byIssueId;
+    private String byProjectId;
+    private String byName;
+    private String byOrganizationName;
+    private String byProjectName;
+    private String byTagName;
+    private String byUserName;
+    private String byContent;
+    private String byContentContains;
+    private String byDescription;
+    private String byDescriptionContains;
+    private String byEmail;
+    private String byUserRole;
 }
-;
