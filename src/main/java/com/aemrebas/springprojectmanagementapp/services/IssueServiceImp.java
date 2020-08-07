@@ -7,7 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
 import com.aemrebas.springprojectmanagementapp.repositories.IssueRepository;
-import com.aemrebas.springprojectmanagementapp.services.desc.IssueService;
+import com.aemrebas.springprojectmanagementapp.services.core.IssueService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,28 +32,33 @@ public class IssueServiceImp implements IssueService<Long> {
     }
 
     @Override
-    public List<Issue> findAllIssuesByTagName(String name) {
+    public List<Issue> findByTagName(String name) {
         return issueRepository.findAllIssuesByTagsName(name);
     }
 
+
     @Override
-    public List<Issue> findAllIssuesByUserId(Long id) {
+    public List<Issue> findByUserId(Long id) {
         return issueRepository.findAllIssuesByUserId(id);
     }
 
     @Override
-    public List<Issue> findAllIssuesByProjectId(Long id) {
+    public List<Issue> findByProjectId(Long id) {
         return issueRepository.findAllIssuesByProjectId(id);
     }
 
     @Override
-    public List<Issue> findAllIssuesByProjectOrganizationName(String organizationName) {
+    public List<Issue> findByProjectName(String name) {
+        return issueRepository.findAllIssuesByProjectName(name);
+    }
+
+    @Override
+    public List<Issue> findByOrganizationName(String organizationName) {
         return issueRepository.findAllIssuesByProjectOrganizationName(organizationName);
     }
 
-
     @Override
-    public List<Issue> findAllIssuesByProjectOrganizationId(Long id) {
+    public List<Issue> findByOrganizationId(Long id) {
         return issueRepository.findAllIssuesByProjectOrganizationId(id);
     }
 

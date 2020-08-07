@@ -7,7 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Message;
 import com.aemrebas.springprojectmanagementapp.repositories.MessageRepository;
-import com.aemrebas.springprojectmanagementapp.services.desc.MessageService;
+import com.aemrebas.springprojectmanagementapp.services.core.MessageService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +44,25 @@ public class MessageServiceImp implements MessageService<Long> {
     @Override
     public void deleteById(Long id) {
         messageRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Message> findBySenderId(Long id) {
+        return messageRepository.findAllMessagesBySenderId(id);
+    }
+
+    @Override
+    public List<Message> findByReceiverId(Long id) {
+        return messageRepository.findAllMessagesByReceiverId(id);
+    }
+
+    @Override
+    public List<Message> findBySubject(String subject) {
+        return messageRepository.findAllMessagesBySubjectContains(subject);
+    }
+
+    @Override
+    public List<Message> findByContent(String content) {
+        return messageRepository.findAllMessagesByContentContains(content);
     }
 }

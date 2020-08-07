@@ -1,4 +1,4 @@
-package com.aemrebas.springprojectmanagementapp.services.desc;
+package com.aemrebas.springprojectmanagementapp.services.core;
 /*
  @project spring-project-management-app
  @author Ahmet Emrebas on 8/6/2020

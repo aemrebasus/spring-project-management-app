@@ -6,7 +6,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
-import com.aemrebas.springprojectmanagementapp.services.IssueServiceImp;
+import com.aemrebas.springprojectmanagementapp.services.core.IssueService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,66 +18,59 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("${rest.issues}")
-public class IssueController extends IssueServiceImp {
+public class IssueController {
 
-    @Override
+    @Autowired
+    private IssueService<Long> issueService;
+
     @GetMapping
     public List<Issue> findAll() {
-        return super.findAll();
+        return issueService.findAll();
     }
 
-    @Override
     @GetMapping("${rest.byId}")
     public Optional<Issue> findById(@PathVariable Long id) {
-        return super.findById(id);
+        return issueService.findById(id);
     }
 
-    @Override
     @GetMapping("${rest.byTagName}")
     public List<Issue> findAllIssuesByTagName(@PathVariable String name) {
-        return super.findAllIssuesByTagName(name);
+        return issueService.findByTagName(name);
     }
 
-    @Override
     @GetMapping("${rest.byUserId}")
     public List<Issue> findAllIssuesByUserId(@PathVariable Long id) {
-        return super.findAllIssuesByUserId(id);
+        return issueService.findByUserId(id);
     }
 
 
-    @Override
     @GetMapping("${rest.byProjectId}")
     public List<Issue> findAllIssuesByProjectId(@PathVariable Long id) {
-        return super.findAllIssuesByProjectId(id);
+        return issueService.findByProjectId(id);
     }
 
-    @Override
     @GetMapping("${rest.byOrganizationName}")
-    public List<Issue> findAllIssuesByProjectOrganizationName(@PathVariable String organizationName) {
-        return super.findAllIssuesByProjectOrganizationName(organizationName);
+    public List<Issue> findAllIssuesByProjectOrganizationName(@PathVariable String name) {
+        return issueService.findByOrganizationName(name);
     }
 
-    @Override
-    @GetMapping("${rest.byOrganizationId}")
+    @GetMapping(value = {"${rest.byOrganizationId}", "${rest.byOrganizationsId}"})
     public List<Issue> findAllIssuesByProjectOrganizationId(@PathVariable Long id) {
-        return super.findAllIssuesByProjectOrganizationId(id);
+        return issueService.findByOrganizationId(id);
     }
 
-    @Override
     @PostMapping
     public void saveOne(@RequestBody Issue entity) {
-        super.saveOne(entity);
+        issueService.saveOne(entity);
     }
 
-    @Override
     @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Issue entity) {
-        super.updateOneById(id, entity);
+        issueService.updateOneById(id, entity);
     }
 
-    @Override
     @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
-        super.deleteById(id);
+        issueService.deleteById(id);
     }
 }

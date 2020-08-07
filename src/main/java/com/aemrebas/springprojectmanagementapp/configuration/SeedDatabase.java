@@ -1,7 +1,7 @@
 package com.aemrebas.springprojectmanagementapp.configuration;
 
 import com.aemrebas.springprojectmanagementapp.domain.*;
-import com.aemrebas.springprojectmanagementapp.services.desc.*;
+import com.aemrebas.springprojectmanagementapp.services.core.*;
 import org.postgresql.core.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

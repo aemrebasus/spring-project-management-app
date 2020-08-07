@@ -5,7 +5,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
-import com.aemrebas.springprojectmanagementapp.services.desc.UserService;
+import com.aemrebas.springprojectmanagementapp.services.core.UserService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;

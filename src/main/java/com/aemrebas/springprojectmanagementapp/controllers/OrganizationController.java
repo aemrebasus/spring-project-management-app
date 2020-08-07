@@ -6,7 +6,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
-import com.aemrebas.springprojectmanagementapp.services.OrganizationServiceImp;
+import com.aemrebas.springprojectmanagementapp.services.core.OrganizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,36 +15,33 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("${rest.organizations}")
-public class OrganizationController extends OrganizationServiceImp {
+public class OrganizationController  {
 
+    @Autowired
+    private OrganizationService<Long> organizationService;
 
-    @Override
     @GetMapping
     public List<Organization> findAll() {
-        return super.findAll();
+        return organizationService.findAll();
     }
 
-    @Override
     @GetMapping("${rest.byId}")
-    public Optional<Organization> findById(Long id) {
-        return super.findById(id);
+    public Optional<Organization> findById(@PathVariable Long id) {
+        return organizationService.findById(id);
     }
 
-    @Override
     @PostMapping
     public void saveOne(@RequestBody Organization organization) {
-        super.saveOne(organization);
+        organizationService.saveOne(organization);
     }
 
-    @Override
     @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Organization updated) {
-        super.updateOneById(id, updated);
+        organizationService.updateOneById(id, updated);
     }
 
-    @Override
     @DeleteMapping("${rest.byId")
     public void deleteById(@PathVariable Long id) {
-        super.deleteById(id);
+        organizationService.deleteById(id);
     }
 }

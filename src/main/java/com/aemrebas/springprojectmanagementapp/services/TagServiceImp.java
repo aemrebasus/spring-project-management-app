@@ -7,7 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Tag;
 import com.aemrebas.springprojectmanagementapp.repositories.TagRepository;
-import com.aemrebas.springprojectmanagementapp.services.desc.TagService;
+import com.aemrebas.springprojectmanagementapp.services.core.TagService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

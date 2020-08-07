@@ -6,7 +6,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.Comment;
-import com.aemrebas.springprojectmanagementapp.services.CommentServiceImp;
+import com.aemrebas.springprojectmanagementapp.services.core.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,61 +15,50 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("${rest.comments}")
-public class CommentController extends CommentServiceImp {
+public class CommentController {
 
-    @Override
+    @Autowired
+    private CommentService<Long> commentService;
+
+    @GetMapping("${rest.byIssueId}")
+    public List<Comment> findByIssueID(@PathVariable Long id) {
+        return commentService.findByIssueID(id);
+    }
+    @GetMapping("${rest.byContent}")
+    public List<Comment> findByContent(@PathVariable String content) {
+        return commentService.findByContent(content);
+    }
+
+    @GetMapping("${rest.byUserId")
+    public List<Comment> findByUserId(@PathVariable Long id) {
+        return commentService.findByUserId(id);
+    }
+
     @GetMapping
     public List<Comment> findAll() {
-        return super.findAll();
+        return commentService.findAll();
     }
 
-    @Override
     @GetMapping("${rest.byId}")
     public Optional<Comment> findById(@PathVariable Long id) {
-
-        return super.findById(id);
+        return commentService.findById(id);
     }
 
-    @Override
-    @GetMapping("${rest.byIssueId}")
-    public List<Comment> findAllCommentsByIssueId(@PathVariable Long id) {
-        return super.findAllCommentsByIssueId(id);
-    }
-
-    @Override
-    @GetMapping("${rest.byContent}")
-    public List<Comment> findAllCommentsByContent(@PathVariable String content) {
-        return super.findAllCommentsByContent(content);
-    }
-
-    @Override
-    @GetMapping("${rest.byContentContains}")
-    public List<Comment> findAllCommentsByContentContains(@PathVariable String content) {
-        return super.findAllCommentsByContentContains(content);
-    }
-
-    @Override
-    @GetMapping("${rest.byUserId}")
-    public List<Comment> findAllCommentsByUserId(@PathVariable Long id) {
-        return super.findAllCommentsByUserId(id);
-    }
-
-    @Override
     @PostMapping
     public void saveOne(@RequestBody Comment entity) {
-        super.saveOne(entity);
+        commentService.saveOne(entity);
     }
 
-    @Override
+
     @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Comment entity) {
-        super.updateOneById(id, entity);
+        commentService.updateOneById(id, entity);
     }
 
-    @Override
+
     @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
-        super.deleteById(id);
+        commentService.deleteById(id);
     }
 
 }

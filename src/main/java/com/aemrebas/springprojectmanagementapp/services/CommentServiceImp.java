@@ -7,7 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.Comment;
 import com.aemrebas.springprojectmanagementapp.repositories.CommentRepository;
-import com.aemrebas.springprojectmanagementapp.services.desc.CommentService;
+import com.aemrebas.springprojectmanagementapp.services.core.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,31 @@ public class CommentServiceImp implements CommentService<Long> {
     private CommentRepository commentRepository;
 
     @Override
+    public List<Comment> findByIssueID(Long id) {
+        return commentRepository.findAllCommentsByIssueId(id);
+    }
+
+    @Override
+    public List<Comment> findByContent(String content) {
+        return commentRepository.findAllCommentsByContentContains(content);
+    }
+
+    @Override
+    public List<Comment> findByUserId(Long id) {
+        return commentRepository.findAllCommentsByUserId(id);
+    }
+
+    @Override
+    public List<Comment> findByUserName(String name) {
+        return commentRepository.findAllCommentsByUserFirstName(name);
+    }
+
+    @Override
+    public List<Comment> findByUserEmail(String email) {
+        return commentRepository.findAllCommentsByUserEmail(email);
+    }
+
+    @Override
     public List<Comment> findAll() {
         return commentRepository.findAll();
     }
@@ -32,39 +57,18 @@ public class CommentServiceImp implements CommentService<Long> {
     }
 
     @Override
-    public void saveOne(Comment entity) {
-        commentRepository.save(entity);
+    public void saveOne(Comment comment) {
+        commentRepository.save(comment);
     }
 
     @Override
-    public void updateOneById(Long id, Comment entity) {
-        Comment existingComment = commentRepository.findById(id).get();
-        BeanUtils.copyProperties(entity, existingComment, "id");
+    public void updateOneById(Long id, Comment comment) {
+        Comment existingComment = commentRepository.getOne(id);
+        BeanUtils.copyProperties(comment, existingComment, "id");
     }
 
     @Override
     public void deleteById(Long id) {
         commentRepository.deleteById(id);
     }
-
-    @Override
-    public List<Comment> findAllCommentsByIssueId(Long id) {
-        return commentRepository.findAllCommentsByIssueId(id);
-    }
-
-    @Override
-    public List<Comment> findAllCommentsByContent(String content) {
-        return commentRepository.findAllCommentsByContent(content);
-    }
-
-    @Override
-    public List<Comment> findAllCommentsByContentContains(String content) {
-        return commentRepository.findAllCommentsByContentContains(content);
-    }
-
-    @Override
-    public List<Comment> findAllCommentsByUserId(Long id) {
-        return commentRepository.findAllCommentsByUserId(id);
-    }
-
 }

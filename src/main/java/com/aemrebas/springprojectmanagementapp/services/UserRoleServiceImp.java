@@ -7,7 +7,7 @@ package com.aemrebas.springprojectmanagementapp.services;
 
 import com.aemrebas.springprojectmanagementapp.domain.UserRole;
 import com.aemrebas.springprojectmanagementapp.repositories.UserRoleRepository;
-import com.aemrebas.springprojectmanagementapp.services.desc.UserRoleService;
+import com.aemrebas.springprojectmanagementapp.services.core.UserRoleService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

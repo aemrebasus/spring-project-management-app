@@ -6,7 +6,8 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 */
 
 import com.aemrebas.springprojectmanagementapp.domain.User;
-import com.aemrebas.springprojectmanagementapp.services.UserServiceImp;
+import com.aemrebas.springprojectmanagementapp.services.core.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,42 +18,39 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("${rest.users}")
-public class UserController extends UserServiceImp {
+public class UserController {
 
-    @Override
+    @Autowired
+    private UserService<Long> userService;
+
     @GetMapping
     public List<User> findAll() {
-        return super.findAll();
+        return userService.findAll();
     }
 
-    @Override
     @GetMapping("${rest.byId}")
     public Optional<User> findById(@PathVariable Long id) {
-        return super.findById(id);
+        return userService.findById(id);
     }
 
-    @Override
     @GetMapping("${rest.byOrganizationId}")
     public List<User> findByOrganizationId(@PathVariable Long id) {
-        return super.findByOrganizationId(id);
+        return userService.findByOrganizationId(id);
     }
 
-    @Override
     @PostMapping
     public void saveOne(User user) {
-        super.saveOne(user);
+        userService.saveOne(user);
     }
 
-    @Override
     @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody User updatedUser) {
-        super.updateOneById(id, updatedUser);
+        userService.updateOneById(id, updatedUser);
     }
 
-    @Override
     @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
-        super.deleteById(id);
+        userService.deleteById(id);
     }
 }
 
