@@ -58,6 +58,7 @@ public class SeedDatabase implements CommandLineRunner {
         tenTimes.accept(() -> messageService.saveOne(new Message(rnd.get(), "subj-" + rnd.get(), "content-" + rnd.get(), LocalDateTime.now(), MESSAGE_STATUS.PENDING, rndUser.get(), rndUser.get())));
         tenTimes.accept(() -> commentService.saveOne(new Comment(rnd.get(), "content-" + rnd.get(), LocalDateTime.now(), rndUser.get(), rndIssue.get())));
         tenTimes.accept(() -> tagService.saveOne(new Tag(rnd.get(), "name-" + rnd.get(), rndIssues.get())));
+        tenTimes.accept(() -> userRoleService.saveOne(new UserRole(rnd.get(), "name-" + rnd.get(), rndUsers.get())));
     }
 
 }

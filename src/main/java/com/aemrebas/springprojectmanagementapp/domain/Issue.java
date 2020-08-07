@@ -33,7 +33,7 @@ public class Issue {
     private String description;
     private LocalDateTime createdAt;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "issues")
     private List<Tag> tags;
 
     @ManyToMany

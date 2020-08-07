@@ -26,7 +26,8 @@ public class Tag {
     private Long id;
     @Column(unique = true)
     private String name;
-    @ManyToMany(mappedBy = "tags")
-    private List<Issue> issues;
 
+    @ManyToMany
+    @JoinColumn(name = "issue_id", referencedColumnName = "id")
+    private List<Issue> issues;
 }

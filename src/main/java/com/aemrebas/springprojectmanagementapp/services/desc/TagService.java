@@ -10,5 +10,5 @@ import com.aemrebas.springprojectmanagementapp.domain.Tag;
 import java.util.List;
 
 public interface TagService<ID> extends IService<Tag, ID> {
-    List<Tag> findAllTagsByIssueId(ID id);
+    List<Tag> findByIssueId(ID id);
 }
