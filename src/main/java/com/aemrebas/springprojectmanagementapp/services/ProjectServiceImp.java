@@ -53,12 +53,17 @@ public class ProjectServiceImp implements ProjectService<Long> {
     }
 
     @Override
+    public List<Project> findByOrganizationName(String name) {
+        return projectRepository.findAllProjectsByOrganizationName(name);
+    }
+
+    @Override
     public List<Project> findByDescription(String description) {
         return projectRepository.findAllProjectsByDescriptionContains(description);
     }
 
     @Override
-    public Optional<Project> findByName(String name) {
+    public List<Project> findByName(String name) {
         return projectRepository.findOneProjectByNameContains(name);
     }
 }

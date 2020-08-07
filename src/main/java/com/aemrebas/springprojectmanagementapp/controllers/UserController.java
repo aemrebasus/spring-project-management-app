@@ -38,6 +38,11 @@ public class UserController {
         return userService.findByOrganizationId(id);
     }
 
+    @GetMapping("${rest.byOrganizationName}")
+    public List<User> findByOrganizationName(@PathVariable String name) {
+        return userService.findByOrganizationName(name);
+    }
+
     @PostMapping
     public void saveOne(User user) {
         userService.saveOne(user);

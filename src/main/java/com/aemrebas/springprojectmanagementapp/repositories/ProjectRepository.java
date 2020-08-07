@@ -12,13 +12,16 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
+
     List<Project> findAllProjectsByOrganizationId(Long id);
+
+    List<Project> findAllProjectsByOrganizationName(String name);
 
     List<Project> findAllProjectsByDescriptionContains(String description);
 
-    Optional<Project> findOneProjectByName(String name);
+    List<Project> findByName(String name);
 
-    Optional<Project> findOneProjectByNameContains(String name);
+    List<Project> findOneProjectByNameContains(String name);
 
 
 }

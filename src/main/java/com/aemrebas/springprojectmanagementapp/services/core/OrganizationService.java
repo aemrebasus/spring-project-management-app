@@ -7,5 +7,8 @@ package com.aemrebas.springprojectmanagementapp.services.core;
 
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
 
+import java.util.Optional;
+
 public interface OrganizationService<ID> extends IService<Organization, ID> {
+    Optional<Organization> findByName(String name);
 }

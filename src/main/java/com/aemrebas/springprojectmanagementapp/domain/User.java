@@ -22,7 +22,7 @@ import java.util.List;
  * Every user belongs to one organization only.
  */
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "organization", "userRoles"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Accessors(chain = true)
 @Data
 @AllArgsConstructor
@@ -38,10 +38,12 @@ public class User {
     private String email;
     private String password;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private List<UserRole> userRoles;
 
     @ManyToOne
+    @JsonIgnore
     private Organization organization;
 
 

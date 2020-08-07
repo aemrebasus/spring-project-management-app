@@ -48,6 +48,7 @@ public class RestFullProperties {
      * byName
      */
     private String byName;
+    private String byTitle;
     private String byOrganizationName;
     private String byProjectName;
     private String byTagName;

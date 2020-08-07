@@ -12,7 +12,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
+
     Optional<Organization> findByName(String name);
 
     Optional<Organization> findByNameContains(String name);
+
 }

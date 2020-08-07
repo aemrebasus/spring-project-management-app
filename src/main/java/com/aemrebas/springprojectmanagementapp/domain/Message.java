@@ -16,6 +16,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -44,5 +45,9 @@ public class Message {
     @ManyToOne
     @JsonIgnore
     private User receiver;
+
+    @ManyToMany(mappedBy = "messages")
+    @JsonIgnore
+    private List<Tag> tags;
 
 }

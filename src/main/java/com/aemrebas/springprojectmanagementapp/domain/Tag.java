@@ -4,6 +4,7 @@ package com.aemrebas.springprojectmanagementapp.domain;/*
  @since 1.0.0 
 */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Tag {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -29,5 +31,12 @@ public class Tag {
 
     @ManyToMany
     @JoinColumn(name = "issue_id", referencedColumnName = "id")
+    @JsonIgnore
     private List<Issue> issues;
+
+    @ManyToMany
+    @JoinColumn(name = "message_id", referencedColumnName = "id")
+    @JsonIgnore
+    private List<Message> messages;
+
 }

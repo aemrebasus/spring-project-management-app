@@ -37,8 +37,13 @@ public class UserServiceImp implements UserService<Long> {
     }
 
     @Override
+    public List<User> findByOrganizationName(String name) {
+        return userRepository.findByOrganizationName(name);
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) {
-        return userRepository.findOneUserByEmail(email);
+        return userRepository.findByEmail(email);
     }
 
     @Override

@@ -57,7 +57,7 @@ public class ProjectController {
     }
 
     @GetMapping("${rest.byProjectName")
-    public Optional<Project> findByName(@PathVariable String name) {
+    public List<Project> findByName(@PathVariable String name) {
         return projectService.findByName(name);
     }
 

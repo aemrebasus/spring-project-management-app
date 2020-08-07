@@ -7,6 +7,7 @@ package com.aemrebas.springprojectmanagementapp.repositories;
 
 import com.aemrebas.springprojectmanagementapp.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
@@ -17,10 +18,11 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
     List<Comment> findAllCommentsByUserFirstName(String name);
 
-
-    List<Comment> findAllCommentsByContent(String content);
+    List<Comment> findAllCommentsByUserEmail(String email);
 
     List<Comment> findAllCommentsByContentContains(String content);
 
-    List<Comment> findAllCommentsByUserEmail(String email);
+    List<Comment> findAllCommentsByIssueOrganizationName(String name);
+
+    List<Comment> findAllCommentsByIssueOrganizationId(Long id);
 }

@@ -16,6 +16,16 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
 
     List<Issue> findAllIssuesByUserId(Long id);
 
+    List<Issue> findAllIssuesByDescriptionContains(String description);
+
+    List<Issue> findAllIssuesByTitleContains(String title);
+
+    List<Issue> findAllIssuesByUserFirstName(String firstName);
+
+    List<Issue> findAllIssuesByUserLastName(String lastName);
+
+    List<Issue> findAllIssuesByUserEmail(String email);
+
     List<Issue> findAllIssuesByTagsName(String name);
 
     List<Issue> findAllIssuesByProjectId(Long id);

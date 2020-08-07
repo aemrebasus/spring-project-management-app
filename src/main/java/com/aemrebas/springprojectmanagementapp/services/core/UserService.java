@@ -14,6 +14,8 @@ public interface UserService<ID> extends IService<User, ID> {
 
     List<User> findByOrganizationId(ID id);
 
+    List<User> findByOrganizationName(String name);
+
     Optional<User> findByEmail(String email);
 
     List<User> findByUserRolesName(String name);

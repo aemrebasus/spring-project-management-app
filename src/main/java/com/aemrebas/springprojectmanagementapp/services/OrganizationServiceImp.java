@@ -46,4 +46,9 @@ public class OrganizationServiceImp implements OrganizationService<Long> {
     public void deleteById(Long id) {
         organizationRepository.deleteById(id);
     }
+
+    @Override
+    public Optional<Organization> findByName(String name) {
+        return organizationRepository.findByName(name);
+    }
 }

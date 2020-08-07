@@ -10,11 +10,14 @@ import com.aemrebas.springprojectmanagementapp.domain.Project;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProjectService<ID> extends IService<Project,ID> {
+public interface ProjectService<ID> extends IService<Project, ID> {
+
     List<Project> findByOrganizationId(ID id);
+
+    List<Project> findByOrganizationName(String name);
 
     List<Project> findByDescription(String description);
 
-    Optional<Project> findByName(String name);
+    List<Project> findByName(String name);
 
 }

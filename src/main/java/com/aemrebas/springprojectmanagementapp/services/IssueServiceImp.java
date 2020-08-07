@@ -21,6 +21,7 @@ public class IssueServiceImp implements IssueService<Long> {
     @Autowired
     private IssueRepository issueRepository;
 
+
     @Override
     public List<Issue> findAll() {
         return issueRepository.findAll();
@@ -36,10 +37,35 @@ public class IssueServiceImp implements IssueService<Long> {
         return issueRepository.findAllIssuesByTagsName(name);
     }
 
+    @Override
+    public List<Issue> findByDescription(String description) {
+        return issueRepository.findAllIssuesByDescriptionContains(description);
+    }
+
+    @Override
+    public List<Issue> findByTitle(String title) {
+        return issueRepository.findAllIssuesByTitleContains(title);
+    }
+
 
     @Override
     public List<Issue> findByUserId(Long id) {
         return issueRepository.findAllIssuesByUserId(id);
+    }
+
+    @Override
+    public List<Issue> findByFirstName(String name) {
+        return issueRepository.findAllIssuesByUserFirstName(name);
+    }
+
+    @Override
+    public List<Issue> findByEmail(String email) {
+        return issueRepository.findAllIssuesByUserEmail(email);
+    }
+
+    @Override
+    public List<Issue> findByLastName(String name) {
+        return issueRepository.findAllIssuesByUserLastName(name);
     }
 
     @Override

@@ -12,10 +12,23 @@ import java.util.List;
 public interface IssueService<ID> extends IService<Issue, ID> {
     List<Issue> findByTagName(String name);
 
+    List<Issue> findByDescription(String description);
+
+    List<Issue> findByTitle(String title);
+
     List<Issue> findByOrganizationId(ID id);
+
     List<Issue> findByProjectId(ID id);
+
     List<Issue> findByUserId(ID id);
 
+    List<Issue> findByFirstName(String name);
+
+    List<Issue> findByEmail(String email);
+
+    List<Issue> findByLastName(String name);
+
     List<Issue> findByOrganizationName(String organizationName);
+
     List<Issue> findByProjectName(String name);
 }

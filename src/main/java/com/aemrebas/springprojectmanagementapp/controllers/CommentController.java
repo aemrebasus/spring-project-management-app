@@ -24,14 +24,30 @@ public class CommentController {
     public List<Comment> findByIssueID(@PathVariable Long id) {
         return commentService.findByIssueID(id);
     }
+
     @GetMapping("${rest.byContent}")
     public List<Comment> findByContent(@PathVariable String content) {
         return commentService.findByContent(content);
     }
 
-    @GetMapping("${rest.byUserId")
+    @GetMapping("${rest.byOrganizationName}")
+    public List<Comment> findByOrganizationName(@PathVariable String name) {
+        return commentService.findByOrganizationName(name);
+    }
+
+    @GetMapping("${rest.byOrganizationId}")
+    public List<Comment> findByOrganizationId(@PathVariable Long id) {
+        return commentService.findByOrganizationId(id);
+    }
+
+    @GetMapping("${rest.byUserId}")
     public List<Comment> findByUserId(@PathVariable Long id) {
         return commentService.findByUserId(id);
+    }
+
+    @GetMapping("${rest.byUserName}")
+    public List<Comment> findByUserName(@PathVariable String name) {
+        return commentService.findByUserName(name);
     }
 
     @GetMapping

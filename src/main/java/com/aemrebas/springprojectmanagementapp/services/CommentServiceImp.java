@@ -11,7 +11,6 @@ import com.aemrebas.springprojectmanagementapp.services.core.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -44,6 +43,16 @@ public class CommentServiceImp implements CommentService<Long> {
     @Override
     public List<Comment> findByUserEmail(String email) {
         return commentRepository.findAllCommentsByUserEmail(email);
+    }
+
+    @Override
+    public List<Comment> findByOrganizationName(String name) {
+        return commentRepository.findAllCommentsByIssueOrganizationName(name);
+    }
+
+    @Override
+    public List<Comment> findByOrganizationId(Long id) {
+        return commentRepository.findAllCommentsByIssueOrganizationId(id);
     }
 
     @Override

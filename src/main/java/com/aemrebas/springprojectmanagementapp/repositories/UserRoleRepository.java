@@ -8,6 +8,14 @@ package com.aemrebas.springprojectmanagementapp.repositories;
 import com.aemrebas.springprojectmanagementapp.domain.UserRole;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
+
+    List<UserRole> findAllByName(String name);
+
+    List<UserRole> findAllByUsersOrganizationId(Long id);
+
+    List<UserRole> findAllByUsersOrganizationName(String name);
 
 }

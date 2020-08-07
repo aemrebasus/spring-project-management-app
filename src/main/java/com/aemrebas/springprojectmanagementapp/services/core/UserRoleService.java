@@ -8,4 +8,5 @@ package com.aemrebas.springprojectmanagementapp.services.core;
 import com.aemrebas.springprojectmanagementapp.domain.UserRole;
 
 public interface UserRoleService<ID> extends IService<UserRole, ID> {
+
 }

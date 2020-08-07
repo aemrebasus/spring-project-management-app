@@ -49,4 +49,8 @@ public class Issue {
     @ManyToOne
     @JsonIgnore
     private Project project;
+
+    @ManyToOne
+    @JsonIgnore
+    private Organization organization;
 }

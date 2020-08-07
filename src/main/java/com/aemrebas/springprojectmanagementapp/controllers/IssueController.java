@@ -33,29 +33,40 @@ public class IssueController {
         return issueService.findById(id);
     }
 
-    @GetMapping("${rest.byTagName}")
-    public List<Issue> findAllIssuesByTagName(@PathVariable String name) {
-        return issueService.findByTagName(name);
+    @GetMapping("${rest.byDescription}")
+    public List<Issue> findByDescription(@PathVariable String description) {
+        return issueService.findByDescription(description);
+    }
+
+
+    @GetMapping("${rest.byTitle}")
+    public List<Issue> findByTitle(@PathVariable String title) {
+        return issueService.findByTitle(title);
     }
 
     @GetMapping("${rest.byUserId}")
-    public List<Issue> findAllIssuesByUserId(@PathVariable Long id) {
+    public List<Issue> findByUserId(@PathVariable Long id) {
         return issueService.findByUserId(id);
     }
 
 
     @GetMapping("${rest.byProjectId}")
-    public List<Issue> findAllIssuesByProjectId(@PathVariable Long id) {
+    public List<Issue> findByProjectId(@PathVariable Long id) {
         return issueService.findByProjectId(id);
     }
 
     @GetMapping("${rest.byOrganizationName}")
-    public List<Issue> findAllIssuesByProjectOrganizationName(@PathVariable String name) {
+    public List<Issue> findByOrganizationName(@PathVariable String name) {
         return issueService.findByOrganizationName(name);
     }
 
+    @GetMapping("${rest.byProjectName}")
+    public List<Issue> findByProjectName(String name) {
+        return issueService.findByProjectName(name);
+    }
+
     @GetMapping(value = {"${rest.byOrganizationId}", "${rest.byOrganizationsId}"})
-    public List<Issue> findAllIssuesByProjectOrganizationId(@PathVariable Long id) {
+    public List<Issue> findByOrganizationId(@PathVariable Long id) {
         return issueService.findByOrganizationId(id);
     }
 

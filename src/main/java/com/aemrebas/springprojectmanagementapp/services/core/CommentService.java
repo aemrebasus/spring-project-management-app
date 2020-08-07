@@ -12,13 +12,10 @@ import java.util.List;
 
 public interface CommentService<ID> extends IService<Comment, ID> {
     List<Comment> findByIssueID(ID id);
-
     List<Comment> findByContent(String content);
-
     List<Comment> findByUserId(ID id);
-
     List<Comment> findByUserName(String name);
-
     List<Comment> findByUserEmail(String email);
-
+    List<Comment> findByOrganizationName(String name);
+    List<Comment> findByOrganizationId(ID id);
 }

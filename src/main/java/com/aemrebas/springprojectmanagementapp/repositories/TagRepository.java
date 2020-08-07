@@ -12,5 +12,23 @@ import java.util.List;
 
 
 public interface TagRepository extends JpaRepository<Tag, Long> {
-    List<Tag> findByIssuesId(Long id);
+
+    List<Tag> findAllByName(String name);
+
+    List<Tag> findAllByNameContains(String name);
+
+    List<Tag> findAllByIssuesId(Long id);
+
+    List<Tag> findAllByIssuesTitleContains(String title);
+
+    List<Tag> findAllByIssuesDescriptionContains(String description);
+
+    List<Tag> findAllByMessagesId(Long id);
+
+    List<Tag> findAllByMessagesSubjectContains(String subject);
+
+    List<Tag> findAllByMessagesContentContains(String content);
+
 }
+
+

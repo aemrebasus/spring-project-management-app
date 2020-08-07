@@ -29,8 +29,9 @@ public class UserRole {
     @Column(unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "userRoles")
+    @ManyToMany
     @JsonIgnore
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<User> users;
 
 }

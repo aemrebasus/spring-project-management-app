@@ -12,9 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
     List<User> findByOrganizationId(Long id);
 
-    Optional<User> findOneUserByEmail(String email);
+    List<User> findByOrganizationName(String name);
+
+    Optional<User> findByEmail(String email);
 
     List<User> findByUserRolesName(String name);
+
 }
