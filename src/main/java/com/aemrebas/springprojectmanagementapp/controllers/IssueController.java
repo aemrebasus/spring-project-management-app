@@ -8,6 +8,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
 import com.aemrebas.springprojectmanagementapp.domain.Issue;
 import com.aemrebas.springprojectmanagementapp.services.IssueServiceImp;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -25,19 +26,19 @@ public class IssueController extends IssueServiceImp {
     }
 
     @Override
-    @GetMapping("{id}")
+    @GetMapping("${rest.byId}")
     public Optional<Issue> findById(@PathVariable Long id) {
         return super.findById(id);
     }
 
     @Override
-    @GetMapping("/tag/{name}")
+    @GetMapping("${rest.byTagName}")
     public List<Issue> findAllIssuesByTagName(@PathVariable String name) {
         return super.findAllIssuesByTagName(name);
     }
 
     @Override
-    @GetMapping("/user/{id}")
+    @GetMapping("${rest.byUserId}")
     public List<Issue> findAllIssuesByUserId(@PathVariable Long id) {
         return super.findAllIssuesByUserId(id);
     }
@@ -49,13 +50,13 @@ public class IssueController extends IssueServiceImp {
     }
 
     @Override
-    @PutMapping("{id}")
+    @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Issue entity) {
         super.updateOneById(id, entity);
     }
 
     @Override
-    @DeleteMapping("{id}")
+    @DeleteMapping("${rest.byId")
     public void deleteById(@PathVariable Long id) {
         super.deleteById(id);
     }

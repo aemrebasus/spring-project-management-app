@@ -15,7 +15,7 @@ import java.util.Optional;
  * Messages' route controller
  */
 @RestController
-@RequestMapping("${rest.root}/messages")
+@RequestMapping("${rest.messages}")
 public class MessageController extends MessageServiceImp {
 
     @Override

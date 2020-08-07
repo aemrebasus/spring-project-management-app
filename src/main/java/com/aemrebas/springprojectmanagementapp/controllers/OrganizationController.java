@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("${rest.root}/${rest.organizations}")
+@RequestMapping("${rest.organizations}")
 public class OrganizationController extends OrganizationServiceImp {
 
     @Autowired
@@ -40,13 +40,13 @@ public class OrganizationController extends OrganizationServiceImp {
     }
 
     @Override
-    @PutMapping("{id}")
+    @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody Organization updated) {
         super.updateOneById(id, updated);
     }
 
     @Override
-    @DeleteMapping("{id}")
+    @DeleteMapping("${rest.byId")
     public void deleteById(@PathVariable Long id) {
         super.deleteById(id);
     }

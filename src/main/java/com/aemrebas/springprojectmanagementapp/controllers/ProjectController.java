@@ -14,7 +14,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("${rest.root}${rest.projects}")
+@RequestMapping("${rest.projects}")
 public class ProjectController extends ProjectServiceImp {
 
     @Override
@@ -24,7 +24,7 @@ public class ProjectController extends ProjectServiceImp {
     }
 
     @Override
-    @GetMapping("{id}")
+    @GetMapping("${rest.byId")
     public Optional<Project> findById(@PathVariable Long id) {
         return super.findById(id);
     }
@@ -36,37 +36,37 @@ public class ProjectController extends ProjectServiceImp {
     }
 
     @Override
-    @PutMapping("{id}")
+    @PutMapping("${rest.ById}")
     public void updateOneById(@PathVariable Long id, @RequestBody Project entity) {
         super.updateOneById(id, entity);
     }
 
     @Override
-    @DeleteMapping("{id}")
+    @DeleteMapping("${rest.byId}")
     public void deleteById(Long id) {
         super.deleteById(id);
     }
 
     @Override
-    @GetMapping("/org/{id}")
+    @GetMapping("${ret.byOrganizationId")
     public List<Project> findAllProjectsByOrganizationId(@PathVariable Long id) {
         return super.findAllProjectsByOrganizationId(id);
     }
 
     @Override
-    @GetMapping("/description/{description}")
+    @GetMapping("${rest.byDescriptionContains")
     public List<Project> findAllProjectsByDescriptionContains(@PathVariable String description) {
         return super.findAllProjectsByDescriptionContains(description);
     }
 
     @Override
-    @GetMapping("/name/{name}")
+    @GetMapping("${rest.byProjectName")
     public Optional<Project> findOneProjectByName(@PathVariable String name) {
         return super.findOneProjectByName(name);
     }
 
     @Override
-    @GetMapping("/name/contains/{name}")
+    @GetMapping("${rest.byProjectNameContains")
     public Optional<Project> findOneProjectByNameContains(@PathVariable String name) {
         return super.findOneProjectByNameContains(name);
     }

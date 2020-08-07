@@ -16,6 +16,6 @@ import org.springframework.stereotype.Component;
 public class ApplicationProperties {
     private String title;
     private String version;
-    private String buildBy;
+    private String author;
     private String licenseURL;
 }

@@ -16,7 +16,7 @@ import java.util.Optional;
  * Users' route controller
  */
 @RestController
-@RequestMapping("${rest.root}/users")
+@RequestMapping("${rest.users}")
 public class UserController extends UserServiceImp {
 
     @Override
@@ -26,13 +26,13 @@ public class UserController extends UserServiceImp {
     }
 
     @Override
-    @GetMapping("{id}")
+    @GetMapping("${rest.byId")
     public Optional<User> findById(@PathVariable Long id) {
         return super.findById(id);
     }
 
     @Override
-    @GetMapping("/org/{id}")
+    @GetMapping("${rest.byOrganizationId}")
     public List<User> findByOrganizationId(@PathVariable Long id) {
         return super.findByOrganizationId(id);
     }
@@ -44,13 +44,13 @@ public class UserController extends UserServiceImp {
     }
 
     @Override
-    @PutMapping("{id}")
+    @PutMapping("${rest.byId}")
     public void updateOneById(@PathVariable Long id, @RequestBody User updatedUser) {
         super.updateOneById(id, updatedUser);
     }
 
     @Override
-    @DeleteMapping("{id}")
+    @DeleteMapping("${rest.byId}")
     public void deleteById(@PathVariable Long id) {
         super.deleteById(id);
     }
