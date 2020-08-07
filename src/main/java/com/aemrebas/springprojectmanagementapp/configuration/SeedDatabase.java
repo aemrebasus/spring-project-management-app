@@ -5,6 +5,7 @@ import com.aemrebas.springprojectmanagementapp.services.core.*;
 import org.postgresql.core.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.util.function.Consumer;
  * Seeding the database
  */
 @Component
+@Profile("dev")
 public class SeedDatabase implements CommandLineRunner {
     @Autowired
     private OrganizationService organizationService;
