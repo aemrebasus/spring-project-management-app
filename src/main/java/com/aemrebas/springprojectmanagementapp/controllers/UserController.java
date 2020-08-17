@@ -28,16 +28,17 @@ public class UserController {
         return userService.findAll();
     }
 
-    @GetMapping("${rest.byId}")
+    @GetMapping({"${rest.byId}", "/index/{id}", "/0/{id}"})
     public Optional<User> findById(@PathVariable Long id) {
         return userService.findById(id);
     }
-    @GetMapping("${rest.byFirstName}")
+
+    @GetMapping({"${rest.byFirstName}", "/firstname/{name}", "/fn/{name}", "/1/{name}"})
     public List<User> findByFirstName(@PathVariable String name) {
         return userService.findByFirstName(name);
     }
 
-    @GetMapping("${rest.byLastName}")
+    @GetMapping({"${rest.byLastName}", "/lastname/{name}", "/ln/{name}", "/2/{name}"})
     public List<User> findByLastName(@PathVariable String name) {
         return userService.findByLastName(name);
     }
@@ -70,6 +71,7 @@ public class UserController {
     public void deleteById(@PathVariable Long id) {
         userService.deleteById(id);
     }
+
 }
 
 
