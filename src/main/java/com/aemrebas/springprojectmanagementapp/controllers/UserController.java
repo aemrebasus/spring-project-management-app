@@ -32,6 +32,19 @@ public class UserController {
     public Optional<User> findById(@PathVariable Long id) {
         return userService.findById(id);
     }
+    @GetMapping("${rest.byFirstName}")
+    public List<User> findByFirstName(@PathVariable String name) {
+        return userService.findByFirstName(name);
+    }
+
+    @GetMapping("${rest.byLastName}")
+    public List<User> findByLastName(@PathVariable String name) {
+        return userService.findByLastName(name);
+    }
+    @GetMapping("${rest.byEmail}")
+    public List<User> findByEmail(@PathVariable String email) {
+        return userService.findByEmailContains(email);
+    }
 
     @GetMapping("${rest.byOrganizationId}")
     public List<User> findByOrganizationId(@PathVariable Long id) {

@@ -30,6 +30,11 @@ public class OrganizationController  {
         return organizationService.findById(id);
     }
 
+    @GetMapping("${rest.byName}")
+    public List<Organization> findByName(@PathVariable String name) {
+        return organizationService.findByNameContains(name);
+    }
+
     @PostMapping
     public void saveOne(@RequestBody Organization organization) {
         organizationService.saveOne(organization);

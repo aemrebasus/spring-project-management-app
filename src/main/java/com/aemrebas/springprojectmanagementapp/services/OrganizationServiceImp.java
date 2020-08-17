@@ -51,4 +51,9 @@ public class OrganizationServiceImp implements OrganizationService<Long> {
     public Optional<Organization> findByName(String name) {
         return organizationRepository.findByName(name);
     }
+
+    @Override
+    public List<Organization> findByNameContains(String name) {
+        return organizationRepository.findByNameContains(name);
+    }
 }

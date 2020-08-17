@@ -32,7 +32,6 @@ public class UserServiceImp implements UserService<Long> {
     }
 
 
-
     @Override
     public List<User> findByOrganizationId(Long id) {
         return userRepository.findByOrganizationId(id);
@@ -46,6 +45,21 @@ public class UserServiceImp implements UserService<Long> {
     @Override
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<User> findByEmailContains(String email) {
+        return userRepository.findByEmailContains(email);
+    }
+
+    @Override
+    public List<User> findByFirstName(String firstName) {
+        return userRepository.findByFirstNameContains(firstName);
+    }
+
+    @Override
+    public List<User> findByLastName(String lastName) {
+        return userRepository.findByLastNameContains(lastName);
     }
 
     @Override
