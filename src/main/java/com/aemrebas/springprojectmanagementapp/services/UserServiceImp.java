@@ -31,6 +31,8 @@ public class UserServiceImp implements UserService<Long> {
         return userRepository.findById(id);
     }
 
+
+
     @Override
     public List<User> findByOrganizationId(Long id) {
         return userRepository.findByOrganizationId(id);
