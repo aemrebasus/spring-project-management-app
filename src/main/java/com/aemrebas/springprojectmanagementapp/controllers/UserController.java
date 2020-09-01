@@ -17,7 +17,7 @@ import java.util.Optional;
  * Users' route controller
  */
 @RestController
-@RequestMapping("${rest.users}")
+@RequestMapping("/api/v1/users")
 public class UserController {
 
     @Autowired

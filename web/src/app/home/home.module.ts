@@ -4,14 +4,18 @@ import { HomeComponent } from './home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
+import { HighlightDirective } from './highlight.directive';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HighlightDirective,
+    UnlessDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     HomeComponent,
