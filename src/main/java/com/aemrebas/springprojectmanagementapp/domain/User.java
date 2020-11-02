@@ -29,7 +29,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private String userName;
     private String firstName;
     private String lastName;
 
@@ -37,6 +37,8 @@ public class User {
     private String email;
     private String password;
 
+    private String roles;
+    private boolean active;
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<UserRole> userRoles;

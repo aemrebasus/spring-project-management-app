@@ -48,6 +48,17 @@ public class UserServiceImp implements UserService<Long> {
     }
 
     @Override
+    public Optional<User> findByUserName(String userName) {
+
+        return userRepository.findByUserName(userName);
+    }
+
+    @Override
+    public Optional<User> findOneByUserName(String userName) {
+        return userRepository.findOneByUserName(userName);
+    }
+
+    @Override
     public List<User> findByEmailContains(String email) {
         return userRepository.findByEmailContains(email);
     }

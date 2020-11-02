@@ -13,10 +13,11 @@ import java.util.Optional;
 public interface UserService<ID> extends IService<User, ID> {
 
     List<User> findByOrganizationId(ID id);
-
     List<User> findByOrganizationName(String name);
-
     Optional<User> findByEmail(String email);
+    Optional<User> findByUserName(String userName);
+    Optional<User> findOneByUserName(String userName);
+
     List<User> findByEmailContains(String email);
     List<User> findByFirstName(String firstName);
     List<User> findByLastName(String lastName);
