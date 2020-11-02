@@ -56,7 +56,7 @@ public class SeedDatabase implements CommandLineRunner {
 
         tenTimes.accept(() -> organizationService.saveOne(new Organization(rnd.get(), "Org-" + rnd.get())));
         tenTimes.accept(() -> projectService.saveOne(new Project(rnd.get(), "Project-Name-" + rnd.get(), "Description-" + rnd.get(), LocalDateTime.now(), rndOrg.get())));
-        tenTimes.accept(() -> userService.saveOne(new User(rnd.get(), "user" + rnd.get(), "firstName-" + rnd.get(), "lastName-" + rnd.get(), "email" + rnd.get() + "@gmail.com", "pass" , "ADMIN,",true, null, rndOrg.get())));
+        tenTimes.accept(() -> userService.saveOne(new User(rnd.get(), "user" + rnd.get(), "firstName-" + rnd.get(), "lastName-" + rnd.get(), "email" + rnd.get() + "@gmail.com", "pass" , "ADMIN",true, null, rndOrg.get())));
         tenTimes.accept(() -> issueService.saveOne(new Issue(rnd.get(), "title-" + rnd.get(), "description-" + rnd.get(), LocalDateTime.now(), null, null, rndUser.get(), rndProject.get(), rndOrg.get())));
         tenTimes.accept(() -> messageService.saveOne(new Message(rnd.get(), "subj-" + rnd.get(), "content-" + rnd.get(), LocalDateTime.now(), MESSAGE_STATUS.PENDING, rndUser.get(), rndUser.get(), new ArrayList<>())));
         tenTimes.accept(() -> commentService.saveOne(new Comment(rnd.get(), "content-" + rnd.get(), LocalDateTime.now(), rndUser.get(), rndIssue.get())));

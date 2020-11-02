@@ -2,6 +2,7 @@ package com.aemrebas.springprojectmanagementapp.configuration;
 
 import lombok.Data;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.annotation.AccessType;
@@ -20,71 +21,79 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("rest")
 @PropertySource("classpath:restfull.properties")
 public class RestFullProperties {
-
     /**
      * Root
      */
-    private String root;
-    private String projects;
-    private String users;
-    private String organizations;
-    private String comments;
-    private String messages;
-    private String issues;
-    private String tags;
-    private String roles;
+    @Value("${rest.root}")
+    public String root;
+    @Value("${rest.projects}")
+    public String projects;
+    @Value("${rest.users}")
+    public String users;
+    @Value("${rest.organizations}")
+    public String organizations;
+    @Value("${rest.comments}")
+    public String comments;
+    @Value("${rest.messages}")
+    public String messages;
+    @Value("${rest.issues}")
+    public String issues;
+    @Value("${rest.tags}")
+    public String tags;
+    @Value("${rest.roles}")
+    public String roles;
 
     /**
      * byId
      */
-    private String byId;
-    private String byOrganizationId;
-    private String byOrganizationsId;
-    private String byUserId;
-    private String byIssueId;
-    private String byProjectId;
+    public String byId;
+    public String byOrganizationId;
+    public String byOrganizationsId;
+    public String byUserId;
+    public String byIssueId;
+    public String byProjectId;
 
     /**
      * byName
      */
-    private String byName;
-    private String byTitle;
-    private String byOrganizationName;
-    private String byProjectName;
-    private String byTagName;
-    private String byUserName;
-    private String byContent;
-    private String byFirstName;
-    private String byLastName;
+    public String byName;
+    public String byTitle;
+    public String byOrganizationName;
+    public String byProjectName;
+    public String byTagName;
+    public String byUserName;
+    public String byContent;
+    public String byFirstName;
+    public String byLastName;
 
     /**
      * byContent
      */
-    private String byContentContains;
-    private String byDescription;
-    private String byDescriptionContains;
-    private String byEmail;
+    public String byContentContains;
+    public String byDescription;
+    public String byDescriptionContains;
+    public String byEmail;
 
     /**
      * byUserRole
      */
-    private String byUserRole;
+    public String byUserRole;
 
     /**
      * Messaging
      * byId
      */
-    private String bySenderId;
-    private String byReceiverId;
+    public String bySenderId;
+    public String byReceiverId;
 
     /**
      * byEmail
      */
-    private String bySenderEmail;
-    private String byReceiverEmail;
+    public String bySenderEmail;
+    public String byReceiverEmail;
 
     /**
      * bySubject
      */
-    private String bySubject;
+    public String bySubject;
 }

@@ -39,6 +39,7 @@ public class User {
 
     private String roles;
     private boolean active;
+
     @ManyToMany(mappedBy = "users")
     @JsonIgnore
     private List<UserRole> userRoles;

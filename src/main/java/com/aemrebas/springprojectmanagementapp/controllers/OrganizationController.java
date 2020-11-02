@@ -5,6 +5,7 @@ package com.aemrebas.springprojectmanagementapp.controllers;
  @since 1.0.0 
 */
 
+import com.aemrebas.springprojectmanagementapp.configuration.RestFullProperties;
 import com.aemrebas.springprojectmanagementapp.domain.Organization;
 import com.aemrebas.springprojectmanagementapp.services.core.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class OrganizationController  {
 
     @Autowired
     private OrganizationService<Long> organizationService;
+
+    @Autowired
+    private RestFullProperties properties;
 
     @GetMapping
     public List<Organization> findAll() {
