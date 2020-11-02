@@ -20,10 +20,8 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties("rest")
 @PropertySource("classpath:restfull.properties")
-public class RestFullProperties {
-    /**
-     * Root
-     */
+public class RestfullProperties {
+
     @Value("${rest.root}")
     public String root;
     @Value("${rest.projects}")

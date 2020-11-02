@@ -1,6 +1,6 @@
 package com.aemrebas.springprojectmanagementapp.security;
 
-import com.aemrebas.springprojectmanagementapp.configuration.RestFullProperties;
+import com.aemrebas.springprojectmanagementapp.configuration.RestfullProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.Properties;
 
 /*
  @project spring-project-management-app
@@ -26,7 +24,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
     UserDetailsService userDetailsService;
 
     @Autowired
-    RestFullProperties props;
+    RestfullProperties props;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -37,11 +35,11 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(props.users).hasAnyAuthority("ADMIN")
+//                .antMatchers(props.users).hasAnyAuthority("ADMIN")
                 .antMatchers(props.projects).hasAnyAuthority("ADMIN", "SCRUM MASTER")
                 .antMatchers(props.issues, props.tags, props.comments).hasAnyAuthority("ADMIN", "SCRUM MASTER", "DEVELOPER")
 
-                .antMatchers("/").permitAll()
+                .and().authorizeRequests().anyRequest().authenticated()
                 .and().formLogin();
     }
 

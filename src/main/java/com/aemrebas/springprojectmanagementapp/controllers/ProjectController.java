@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping("${rest.projects}")
 public class ProjectController {
@@ -26,7 +25,7 @@ public class ProjectController {
         return projectService.findAll();
     }
 
-    @GetMapping("${rest.byId")
+    @GetMapping("${rest.byId}")
     public Optional<Project> findById(@PathVariable Long id) {
         return projectService.findById(id);
     }
